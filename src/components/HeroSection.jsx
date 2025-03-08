@@ -7,44 +7,45 @@ export default function HeroSection() {
           Commit to Fit, Commit to You
         </h1>
 
-        <div className="d-flex gap-3">
-          <p className="text-muted font-verdana">
+        <div className="d-flex gap-3 flex-wrap">
+          <p className="text-muted font-verdana col-12 col-md-6">
             Break barriers, smash goals—200+ trainers are here to fuel your
             success!
           </p>
-          <a className="btn btn-dark ms-auto">Learn More</a>
+          <a className="btn btn-dark ms-auto col-5 col-md-2 ">Learn More</a>
         </div>
 
-        <div className="mt-2 h-50 overflow-hidden border border-2 border-muted rounded">
+        <div className="mt-2 d-flex justify-content-center align-items-center overflow-hidden border border-2 border-muted rounded responsive-height">
             <video
               className="w-100"
-              src="https://www.youtube.com/embed/Sc7LUjbKBHw?si=9yX1SBn4IcMFp6NX"
+              src="../../public/a Cinematic Fitness Video...SONY FX6(4K_HD).webm"
               muted
-              autoPlay/>
+              autoPlay
+              loop/>
         </div>
 
-        <div className="d-flex gap-3 mt-3">
-            <div className="border border-2 border-muted rounded w-25 px-3 bg-dark">
-                <h2 className="fw-bolder sans-serif text-light">200+</h2>
-                <p className="font-verdana text-light">Trainers</p>
-            </div>
+        <div className="d-flex flex-wrap mt-3 justify-content-center">
+    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-4 bg-dark">
+        <h2 className="fw-bold text-light">200+</h2>
+        <p className="text-light">Trainers</p>
+    </div>
 
-            <div className="border border-2 border-muted rounded w-25 px-3 bg-dark">
-                <h2 className="fw-bolder sans-serif text-light">50+</h2>
-                <p className="font-verdana text-light">Training Programs</p>
-            </div>
+    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-3 bg-dark">
+        <h2 className="fw-bold text-light">50+</h2>
+        <p className="text-light">Training Program</p>
+    </div>
 
-            <div className="border border-2 border-muted rounded w-25 px-3 bg-dark">
-                <h2 className="fw-bolder sans-serif text-light">3K+</h2>
-                <p className="font-verdana text-light">Avtice Users</p>
-            </div>
+    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-4 bg-dark">
+        <h2 className="fw-bold text-light">3K+</h2>
+        <p className="text-light">Active Users</p>
+    </div>
 
-            <div className="border border-2 border-muted rounded w-25 px-3 bg-dark">
-                <h2 className="fw-bolder sans-serif text-light">16K+</h2>
-                <p className="font-verdana text-light">Transformation</p>
-            </div>
+    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-3 bg-dark">
+        <h2 className="fw-bold text-light">16K+</h2>
+        <p className="text-light">Transformation</p>
+    </div>
+</div>
 
-        </div>
 
       </div>
     </>

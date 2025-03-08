@@ -1,3 +1,13 @@
 .big-shoulders{
     font-family: "Big Shoulders", sans-serif;
 }
+
+.responsive-height {
+    height: 25vh;
+  }
+  
+  @media (min-width: 992px) {
+    .responsive-height {
+      height: 50vh;
+    }
+  }
