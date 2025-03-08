@@ -3,7 +3,7 @@ export default function HeroSection() {
     <>
       <div className="mt-5 px-5 vh-100">
 
-        <h1 className="fw-bolder sans-serif">
+        <h1 className="fw-bolder big-shoulders">
           Commit to Fit, Commit to You
         </h1>
 
