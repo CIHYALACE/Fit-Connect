@@ -23,22 +23,12 @@ export default function Header() {
         <NavLink><i class="fa-solid fa-bag-shopping fs-5 d-sm-inline px-2 d-lg-none"></i></NavLink>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto fw-bold">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">About</Nav.Link>
-            <Nav.Link href="#link">Sponsors</Nav.Link>
-            <Nav.Link href="#link">Contact</Nav.Link>
-            <NavDropdown title="Products&Service" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Online Couching</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Training Programs
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Trainers List</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-            <NavLink><i class="fa-solid fa-search fs-5 d-none d-lg-inline"></i></NavLink>
-            <NavLink><i class="fa-solid fa-bag-shopping fs-5 d-none d-lg-inline"></i></NavLink>
+            <Nav.Link className="nav-link" href="#home">Home</Nav.Link>
+            <Nav.Link className="nav-link" href="#link">About</Nav.Link>
+            <Nav.Link className="nav-link" href="#link">Sponsors</Nav.Link>
+            <Nav.Link className="nav-link" href="#link">Contact</Nav.Link>
+            <NavLink><i class="fa-solid fa-search fs-5 d-none d-lg-inline px-2"></i></NavLink>
+            <NavLink><i class="fa-solid fa-bag-shopping fs-5 d-none d-lg-inline px-2"></i></NavLink>
           </Nav>
         </Navbar.Collapse>
       </Container>

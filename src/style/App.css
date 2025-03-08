@@ -5,6 +5,29 @@
 .responsive-height {
     height: 25vh;
   }
+
+  .nav-link {
+    position: relative;
+  }
+
+  .nav-link::after,
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #ff0000;
+    bottom: -5px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease-out;
+  }
+
+.nav-link:hover::after,
+.nav-link:hover::before {
+  transform: scaleX(1);
+}
   
   @media (min-width: 992px) {
     .responsive-height {
