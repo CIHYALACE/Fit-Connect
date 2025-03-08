@@ -28,6 +28,15 @@
 .nav-link:hover::before {
   transform: scaleX(1);
 }
+
+.program-card{
+  background-image: url("../../public/pexels-ivan-samkov-4162459.jpg");
+  background-size: cover;
+  background-position: center;
+}
+p{
+  margin-bottom: 0;
+}
   
   @media (min-width: 992px) {
     .responsive-height {

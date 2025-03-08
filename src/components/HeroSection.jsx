@@ -1,7 +1,7 @@
 export default function HeroSection() {
   return (
     <>
-      <div className="mt-5 px-5 vh-100">
+      <div className="mt-5 px-5 vh-75 vh-lg-100">
 
         <h1 className="fw-bolder big-shoulders">
           Commit to Fit, Commit to You
