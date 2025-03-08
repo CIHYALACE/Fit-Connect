@@ -3,9 +3,7 @@ export default function Footer() {
     <>
       <div className="mt-5">
         <footer
-          className="text-center text-lg-start text-white"
-          style={{ backgroundColor: "#1c2331" }}
-        >
+          className="text-center text-lg-start text-white bg-dark">
           <section
             className="d-flex justify-content-between p-4"
             style={{ backgroundColor: "#c10005" }}
@@ -15,22 +13,22 @@ export default function Footer() {
             </div>
 
             <div>
-              <a href="" className="text-white me-4">
+              <a href="https://www.facebook.com/cihyalace.abdo/" target="_blank" className="text-white me-4">
                 <i className="fab fa-facebook-f"></i>
               </a>
-              <a href="" className="text-white me-4">
+              <a href="#" className="text-white me-4">
                 <i className="fa-brands fa-x-twitter"></i>
               </a>
-              <a href="" className="text-white me-4">
+              <a href="mailto:abodyoussef2015@gmail.com" className="text-white me-4">
                 <i className="fab fa-google"></i>
               </a>
-              <a href="" className="text-white me-4">
+              <a href="https://www.instagram.com/abdoyoussef_2/" target="_blank" className="text-white me-4">
                 <i className="fab fa-instagram"></i>
               </a>
-              <a href="" className="text-white me-4">
+              <a href="https://www.linkedin.com/in/abdel-rahman-youssef-16664b236/" target="_blank" className="text-white me-4">
                 <i className="fab fa-linkedin"></i>
               </a>
-              <a href="" className="text-white me-4">
+              <a href="https://github.com/CIHYALACE" target="_blank" className="text-white me-4">
                 <i className="fab fa-github"></i>
               </a>
             </div>
@@ -40,7 +38,7 @@ export default function Footer() {
             <div className="container text-center text-md-start mt-5">
               <div className="row mt-3">
                 <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                  <h6 className="text-uppercase fw-bold">Company name</h6>
+                  <h6 className="text-uppercase fw-bold">Fit Connect</h6>
                   <hr
                     className="mb-4 mt-0 d-inline-block mx-auto"
                     style={{
@@ -68,22 +66,22 @@ export default function Footer() {
                   />
                   <p>
                     <a href="#!" className="text-white">
-                      MDBootstrap
+                      Online Couching
                     </a>
                   </p>
                   <p>
                     <a href="#!" className="text-white">
-                      MDWordPress
+                      Training Program
                     </a>
                   </p>
                   <p>
                     <a href="#!" className="text-white">
-                      BrandFlow
+                      Meal Plans
                     </a>
                   </p>
                   <p>
                     <a href="#!" className="text-white">
-                      Bootstrap Angular
+                      Trainers
                     </a>
                   </p>
                 </div>
@@ -100,22 +98,22 @@ export default function Footer() {
                   />
                   <p>
                     <a href="#!" className="text-white">
-                      Your Account
+                      Home
                     </a>
                   </p>
                   <p>
                     <a href="#!" className="text-white">
-                      Become an Affiliate
+                      About
                     </a>
                   </p>
                   <p>
                     <a href="#!" className="text-white">
-                      Shipping Rates
+                      Sponsers
                     </a>
                   </p>
                   <p>
                     <a href="#!" className="text-white">
-                      Help
+                      Contact
                     </a>
                   </p>
                 </div>
@@ -131,16 +129,16 @@ export default function Footer() {
                     }}
                   />
                   <p>
-                    <i className="fas fa-home mr-3"></i> New York, NY 10012, US
+                    <i className="fas fa-home mr-3"></i> New Cairo, 10012, Egypt
                   </p>
                   <p>
-                    <i className="fas fa-envelope mr-3"></i> info@example.com
+                    <i className="fas fa-envelope mr-3"></i> abodyoussef2015@gmail.com
                   </p>
                   <p>
-                    <i className="fas fa-phone mr-3"></i> + 01 234 567 88
+                    <i className="fas fa-phone mr-3"></i> +020 10 279 833 79
                   </p>
                   <p>
-                    <i className="fas fa-print mr-3"></i> + 01 234 567 89
+                    <i className="fas fa-print mr-3"></i> +020 10 279 833 79
                   </p>
                 </div>
               </div>
@@ -152,8 +150,8 @@ export default function Footer() {
             style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
           >
             © 2020 Copyright:
-            <a className="text-white" href="https://mdbootstrap.com/">
-              MDBootstrap.com
+            <a className="text-white" href="#">
+              Fit Connect
             </a>
           </div>
         </footer>
