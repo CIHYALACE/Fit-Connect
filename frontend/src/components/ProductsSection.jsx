@@ -6,31 +6,31 @@ export default function ProductsSection() {
         <div className="d-flex justify-content-between flex-wrap h-75 text-center">
 
           <div className="col-6 col-md-3 px-1 px-md-4">
-            <a href="#"><img src="../../public/pexels-ivan-samkov-4162459.jpg" width={"100%"} alt="" /></a>
-            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Program Name</h4></a>
-            <p>Author:Author Name</p>
-            <p>Price:Program Price</p>
+            <a href="#" className="program-card"><img src="../../public/Elite_Alex.jpeg" alt=""/></a>
+            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Elite</h4></a>
+            <p>Author:ALex Eubank</p>
+            <p>Price: 99$</p>
           </div>
 
           <div className="col-6 col-md-3 px-1 px-md-4">
-            <a href="#"><img src="../../public/pexels-ivan-samkov-4162459.jpg" width={"100%"} alt="" /></a>
-            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Program Name</h4></a>
-            <p>Author:Author Name</p>
-            <p>Price:Program Price</p>
+            <a href="#" className="program-card"><img src="../../public/LowImpact_Informa.jpeg" width={"100%"} alt="" /></a>
+            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Low Impact</h4></a>
+            <p>Author: Informa</p>
+            <p>Price: 49$</p>
           </div>
 
           <div className="col-6 col-md-3 px-1 px-md-4">
-            <a href="#"><img src="../../public/pexels-ivan-samkov-4162459.jpg" width={"100%"} alt="" /></a>
-            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Program Name</h4></a>
-            <p>Author:Author Name</p>
-            <p>Price:Program Price</p>
+            <a href="#" className="program-card"><img src="../../public/SummerForm_Hossam.jpeg" width={"100%"} alt="" /></a>
+            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Summer Form</h4></a>
+            <p>Author: Hossam</p>
+            <p>Price: 49$</p>
           </div>
 
           <div className="col-6 col-md-3 px-1 px-md-4">
-            <a href="#"><img src="../../public/pexels-ivan-samkov-4162459.jpg" width={"100%"} alt="" /></a>
-            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Program Name</h4></a>
-            <p>Author:Author Name</p>
-            <p>Price:Program Price</p>
+            <a href="#" className="program-card"><img src="../../public/Peak_Alex.jpeg" width={"100%"} alt="" /></a>
+            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Peak Perfomance</h4></a>
+            <p>Author: Alex Eubank</p>
+            <p>Price: 99$</p>
           </div>
 
           {/* <div className="col-6 col-md-3 d-none d-md-block">
