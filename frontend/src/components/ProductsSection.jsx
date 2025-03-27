@@ -2,7 +2,7 @@ export default function ProductsSection() {
   return (
     <>
       <div className="vh-100 container mt-5">
-        <h3 className="big-shoulders fw-bold mb-4">Trainig Programs:</h3>
+        <h3 className="big-shoulders fw-bold mb-4">Trainig Program:</h3>
         <div className="d-flex justify-content-between flex-wrap h-75 text-center">
 
           <div className="col-6 col-md-3 px-1 px-md-4">

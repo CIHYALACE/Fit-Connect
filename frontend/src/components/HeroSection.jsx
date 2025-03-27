@@ -15,7 +15,7 @@ export default function HeroSection() {
           <a className="btn btn-dark ms-auto col-5 col-md-2 ">Learn More</a>
         </div>
 
-        <div className="mt-2 d-flex justify-content-center align-items-center overflow-hidden border border-2 border-muted rounded responsive-height">
+        <div className="mt-2 d-flex justify-content-center align-items-center overflow-hidden lg-border lg-border-2 lg-border-muted rounded responsive-height">
             <video
               className="w-100"
               src="../../public/a Cinematic Fitness Video...SONY FX6(4K_HD).webm"
