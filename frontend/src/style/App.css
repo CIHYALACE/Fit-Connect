@@ -6,6 +6,10 @@
     height: 25vh;
   }
 
+.responsive-height-2 {
+    height: 50vh;
+  }
+
   .nav-link {
     position: relative;
   }
@@ -61,4 +65,11 @@ p{
     .responsive-height {
       height: 50vh;
     }
+    
   }
+
+  @media (orientation: portrait) {
+    .responsive-height-portrait {
+        height: 100vh;
+    }
+}
