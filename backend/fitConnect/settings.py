@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-SAHRED_APPS = [
+SHARED_APPS = [
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,14 +38,13 @@ SAHRED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core.apps.ApiConfig',
-    'dajngo_tenants',
+    'django_tenants',
     'core'
 ]
 
 TENANT_APPS = ['client']
 
-INSTALLED_APPS = TENANT_APPS + [app for app in TENANT_APPS if app not in SAHRED_APPS]
+INSTALLED_APPS = SHARED_APPS + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -93,7 +92,7 @@ DATABASES = {
     }
 }
 
-DATABASES_ROUTERS = (
+DATABASE_ROUTERS = (
     'django_tenants.routers.TenantSyncRouter',
 )
 
@@ -138,3 +137,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+TENANT_MODEL = "core.Client"
+
+TENANT_DOMAIN_MODEL = "core.Domain"
