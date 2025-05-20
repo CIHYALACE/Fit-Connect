@@ -33,13 +33,6 @@ export default function ProductsSection() {
             <p>Price: 99$</p>
           </div>
 
-          {/* <div className="col-6 col-md-3 d-none d-md-block">
-            <img src="../../public/pexels-ivan-samkov-4162459.jpg" width={"100%"} alt="" />
-            <h4 className="big-shoulders fw-bold">Program Name</h4>
-            <p>Author:Author Name</p>
-            <p>Price:Program Price</p>
-          </div> */}
-
         </div>
       </div>
     </>

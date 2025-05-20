@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5000/api/training-programs';
+const API_URL = "http://192.168.1.12:8000/api/training-programs";
 
 const  getTrainingPrograms = () => axios.get(API_URL);
 
