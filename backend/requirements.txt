@@ -1,0 +1,3 @@
+django
+django-tenants
+psycopg2-binary

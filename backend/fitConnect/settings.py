@@ -30,7 +30,7 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
-INSTALLED_APPS = [
+SAHRED_APPS = [
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,7 +39,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'core.apps.ApiConfig',
+    'dajngo_tenants',
+    'core'
 ]
+
+TENANT_APPS = ['client']
+
+INSTALLED_APPS = TENANT_APPS + [app for app in TENANT_APPS if app not in SAHRED_APPS]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,14 +84,18 @@ WSGI_APPLICATION = 'fitConnect.wsgi.application'
 DATABASES = {
     # remember the django language in case sensitive and postgres always sort the database data in lower case
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django_tenants.postgresql_backend',
         'NAME': 'fitconnect',
         'USER': 'abdelrahman',
         'PASSWORD': 'Abod@2000',
         'HOST': 'localhost',
-        'PORT': '5432',
+        'PORT': 5432
     }
 }
+
+DATABASES_ROUTERS = (
+    'django_tenants.routers.TenantSyncRouter',
+)
 
 
 # Password validation
