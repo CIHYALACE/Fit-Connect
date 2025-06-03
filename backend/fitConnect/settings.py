@@ -45,7 +45,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 # Application definition
 
-SHARED_APPS = [
+INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'django.contrib.admin',
@@ -54,18 +54,12 @@ SHARED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_tenants',
-    'core'
+    'core',
 ]
 
-TENANT_APPS = ['client']
-
-INSTALLED_APPS = SHARED_APPS + [app for app in TENANT_APPS if app not in SHARED_APPS]
-
 MIDDLEWARE = [
-    'django_tenants.middleware.main.TenantMainMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -99,9 +93,8 @@ WSGI_APPLICATION = 'fitConnect.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    # remember the django language in case sensitive and postgres always sort the database data in lower case
     'default': {
-        'ENGINE': 'django_tenants.postgresql_backend',
+        'ENGINE': 'django.db.backends.postgresql',  # Changed from django_tenants.postgresql_backend
         'NAME': 'postgres',
         'USER': 'postgres',
         'PASSWORD': 'Abod@2000',
@@ -109,10 +102,6 @@ DATABASES = {
         'PORT': 5432
     }
 }
-
-DATABASE_ROUTERS = (
-    'django_tenants.routers.TenantSyncRouter',
-)
 
 
 # Password validation
@@ -155,9 +144,3 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-TENANT_MODEL = "core.Client"
-
-TENANT_DOMAIN_MODEL = "core.Domain"
-
-PUBLIC_SCHEMA_URLCONF = 'core.urls'
