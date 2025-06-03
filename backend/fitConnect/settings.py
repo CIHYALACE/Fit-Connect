@@ -25,13 +25,29 @@ SECRET_KEY = 'django-insecure-l9=p$3l^^$+y@%g-*t2l7-^qqpmji34+h=qwq5$ijj5-c4k2ma
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
 
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
+APPEND_SLASH = False  # This prevents Django from adding trailing slashes and redirecting
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://192.168.1.10:5173",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://192.168.1.10:5173",
+]
 
 # Application definition
 
 SHARED_APPS = [
     'rest_framework',
+    'corsheaders',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -47,6 +63,8 @@ TENANT_APPS = ['client']
 INSTALLED_APPS = SHARED_APPS + [app for app in TENANT_APPS if app not in SHARED_APPS]
 
 MIDDLEWARE = [
+    'django_tenants.middleware.main.TenantMainMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -84,8 +102,8 @@ DATABASES = {
     # remember the django language in case sensitive and postgres always sort the database data in lower case
     'default': {
         'ENGINE': 'django_tenants.postgresql_backend',
-        'NAME': 'fitconnect',
-        'USER': 'abdelrahman',
+        'NAME': 'postgres',
+        'USER': 'postgres',
         'PASSWORD': 'Abod@2000',
         'HOST': 'localhost',
         'PORT': 5432
@@ -141,3 +159,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 TENANT_MODEL = "core.Client"
 
 TENANT_DOMAIN_MODEL = "core.Domain"
+
+PUBLIC_SCHEMA_URLCONF = 'core.urls'
