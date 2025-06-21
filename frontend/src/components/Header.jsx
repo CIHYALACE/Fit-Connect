@@ -13,7 +13,7 @@ export default function Header() {
         <Navbar.Brand href="#home" className="font-weight-bold fs-3 fw-bold big-shoulders">
           <img
             alt=""
-            src="../../public/icons8-dumbbell-50.png"
+            src="icons8-dumbbell-50.png"
             width="45"
             height="45"
             className="d-inline-block align-top"

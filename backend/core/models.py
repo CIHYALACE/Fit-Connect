@@ -14,4 +14,7 @@ class TrainingPrograms(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     difficulty_level = models.CharField(choices=DIFFICULTY_COICES, max_length=100)
-    image = models.ImageField(upload_to=None)
+    image = models.ImageField(upload_to='training_programs/')
+    
+    def __str__(self):
+        return self.title

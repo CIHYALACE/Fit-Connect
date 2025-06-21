@@ -85,21 +85,6 @@ class CoachProfile(models.Model):
     certification = models.FileField(upload_to='certifications/', blank=True, null=True)
     is_verified = models.BooleanField(default=False)
 
-    @property
-    def specialty_list(self):
-        """Get specialties as a Python list"""
-        try:
-            return json.loads(self.specialties)
-        except json.JSONDecodeError:
-            return []
-
-    @specialty_list.setter
-    def specialty_list(self, value):
-        """Set specialties from a Python list"""
-        if not isinstance(value, list):
-            raise ValueError("Specialties must be a list")
-        self.specialties = json.dumps(value)
-
     def __str__(self):
         return f"{self.first_name} {self.last_name}"
 

@@ -1,37 +1,47 @@
+import React, { useState , useEffect} from "react";
+import TrainingCard from "./TrainingCard";
+
 export default function ProductsSection() {
+  let dumbData = [
+    {
+      "id":1,
+      "name":"Elite",
+      "auther":"Alex Eubank",
+      "price":99,
+      "img":"Elite_Alex.jpeg"
+    },
+    {
+      "id":2,
+      "name":"Low Impact",
+      "auther":"Informa",
+      "price":49,
+      "img":"LowImpact_Informa.jpeg"
+    },
+    {
+      "id":3,
+      "name":"Peak Performanc",
+      "auther":"Alex Eubank",
+      "price":99,
+      "img":"Peak_Alex.jpeg"
+    },
+    { 
+      "id":4,
+      "name":"Summer Form",
+      "auther":"Alex Eubank",
+      "price":49,
+      "img":"SummerForm_Hossam.jpeg"
+    },
+
+  ]
   return (
     <>
       <div className="vh-100 container mt-5">
         <h3 className="big-shoulders fw-bold mb-4 ">Trainig Programs:</h3>
         <div className="d-flex justify-content-between flex-wrap h-75 text-center">
-
-          <div className="col-6 col-md-3 px-1 px-md-4">
-            <a href="#" className="program-card"><img src="../../public/Elite_Alex.jpeg" alt=""/></a>
-            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Elite</h4></a>
-            <p>Author:ALex Eubank</p>
-            <p>Price: 99$</p>
-          </div>
-
-          <div className="col-6 col-md-3 px-1 px-md-4">
-            <a href="#" className="program-card"><img src="../../public/LowImpact_Informa.jpeg" width={"100%"} alt="" /></a>
-            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Low Impact</h4></a>
-            <p>Author: Informa</p>
-            <p>Price: 49$</p>
-          </div>
-
-          <div className="col-6 col-md-3 px-1 px-md-4">
-            <a href="#" className="program-card"><img src="../../public/SummerForm_Hossam.jpeg" width={"100%"} alt="" /></a>
-            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Summer Form</h4></a>
-            <p>Author: Hossam</p>
-            <p>Price: 49$</p>
-          </div>
-
-          <div className="col-6 col-md-3 px-1 px-md-4">
-            <a href="#" className="program-card"><img src="../../public/Peak_Alex.jpeg" width={"100%"} alt="" /></a>
-            <a href="#" className="text-decoration-none "><h4 className="big-shoulders fw-bold text-dark ">Peak Perfomance</h4></a>
-            <p>Author: Alex Eubank</p>
-            <p>Price: 99$</p>
-          </div>
+        
+        {dumbData.slice(0, 4).map((item,id) =>(
+            <TrainingCard key={id} name={item.name} auther={item.auther} price={item.price} img={item.img} />
+        ))}
 
         </div>
       </div>

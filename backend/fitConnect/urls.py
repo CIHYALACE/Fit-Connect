@@ -18,7 +18,9 @@ from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 
+
 urlpatterns = [
     path('', RedirectView.as_view(url='http://192.168.1.10:5173/')),
     path('admin/', admin.site.urls),
+    path('api/', include('core.urls')),
 ]
