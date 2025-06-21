@@ -7,7 +7,7 @@ export default function CouchesSection() {
                     <p className="text-white mb-2">Upgrade your home with our luxurious, high-quality couches. Perfect comfort, timeless design—because you deserve the best.</p>
                     <button className="btn btn-light">View Couches</button>
                 </div>
-                <img src="../../public/BigMan.jpeg" alt="Couches" className=" align-self-end align-self-md-start col-12 col-md-3 position-relative" />
+                <img src="/BigMan.jpeg" alt="Couches" className=" align-self-end align-self-md-start col-12 col-md-3 position-relative" />
 
             </div>
         </>
