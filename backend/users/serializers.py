@@ -4,4 +4,4 @@ from .models import CoachProfile
 class CoachProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = CoachProfile
-        feilds = []
+        fields = '__all__'
