@@ -1,7 +1,15 @@
 import React, { useState , useEffect} from "react";
 import TrainingCard from "./TrainingCard";
 
-export default function ProductsSection() {
+export default function ProductsSection({programs}) {
+
+useEffect(() => {
+  if (programs && programs.length > 0) {
+    console.log(programs);
+  }
+}, [programs]);
+
+
   let dumbData = [
     {
       "id":1,
