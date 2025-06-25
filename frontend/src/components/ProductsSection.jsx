@@ -43,10 +43,10 @@ useEffect(() => {
   ]
   return (
     <>
-      <div className="vh-100 container mt-5">
-        <h3 className="big-shoulders fw-bold mb-4 ">Trainig Programs:</h3>
-        <div className="d-flex justify-content-between flex-wrap h-75 text-center">
-        
+      <div className="vh-100 container mt-5 border border-1">
+        <h3 className="big-shoulders fw-bold mb-4 ps-1 ps-md-4">Training Programs:</h3>
+        <div className="d-flex justify-content-around flex-wrap h-75 text-center border border-1">
+
         {dumbData.slice(0, 4).map((item,id) =>(
             <TrainingCard key={id} name={item.name} auther={item.auther} price={item.price} img={item.img} />
         ))}
