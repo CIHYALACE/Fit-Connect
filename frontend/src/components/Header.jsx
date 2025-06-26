@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <nav className="navbar navbar-expand-lg bg-body-tertiary position-md-sticky top-0 z-1">
+    <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-md-mid">
       <div className="container d-flex justify-content-center">
         <a className="navbar-brand" href="/">
           <img
@@ -12,7 +12,6 @@ export default function Header() {
           />{" "}
           Fit Connect
         </a>
-        {/* REMOVE the toggler and collapse */}
         <ul className="navbar-nav ms-md-auto fw-bold flex-row gap-2 align-items-center mb-0">
           <li className="nav-item">
             <a className="nav-link text-dark" href="/">Home</a>
