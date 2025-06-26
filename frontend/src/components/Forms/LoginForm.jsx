@@ -24,7 +24,7 @@ export default function LoginForm(){
                     <a href="#" className="text-dark">Forgot Password?</a>
                 </label>
             </div>
-            <button type="button" class="btn btn-dark"><p className="py-1">CONTINUE</p></button>
+            <button type="button" className="btn btn-dark"><p className="py-1">CONTINUE</p></button>
             <div className="d-flex align-items-center">
                 <hr className="flex-grow-1"/>
                 <span className="mx-3">or</span>

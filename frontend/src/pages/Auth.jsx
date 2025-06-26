@@ -25,7 +25,7 @@ export default function AccountPage() {
               className="carousel slide"
               data-bs-ride="carousel"
             >
-              <div className="carousel-indicators">
+              <div className="carousel-indicators ">
                 <button
                   type="button"
                   data-bs-target="#carouselExampleIndicators"
@@ -68,7 +68,7 @@ export default function AccountPage() {
           </div>
         </div>
 
-        <div className="col-10 col-md-4 rounded-top-5  align-self-center align-self-md-end h-100 h-85 bg-white">
+        <div className="col-10 col-md-4 rounded-top-5 align-self-center align-self-md-end h-100 h-85 bg-white">
           <LoginForm />
         </div>
       </div>
