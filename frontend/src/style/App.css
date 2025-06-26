@@ -63,6 +63,37 @@
 p{
   margin-bottom: 0;
 }
+
+.h-85{
+  height: 85%;
+}
+
+.ms-6{
+  margin-right: 22%;
+}
+
+.bg-img {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.bg-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("/view-gym-room-training-sports.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  filter: brightness(0.7);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.fs-7{
+  font-size:smaller ;
+}
   
   @media (min-width: 992px) {
     .responsive-height {

@@ -10,8 +10,8 @@ export default function App() {
       <Routes>
         <Route path='/' element={ <SharedLayout /> } >
           <Route path='/' element={ <Home /> } />
-          <Route path='account' element={ <AccountPage /> } />
         </Route>
+        <Route path='account' element={ <AccountPage /> } />
       </Routes>
   )
 }
