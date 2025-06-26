@@ -68,7 +68,7 @@ export default function AccountPage() {
           </div>
         </div>
 
-        <div className="col-10 col-md-4 border border-1 border-dark rounded-top-5 align-self-end h-85 bg-white">
+        <div className="col-10 col-md-4 rounded-top-5  align-self-center align-self-md-end h-100 h-85 bg-white">
           <LoginForm />
         </div>
       </div>

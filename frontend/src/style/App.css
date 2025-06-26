@@ -64,9 +64,7 @@ p{
   margin-bottom: 0;
 }
 
-.h-85{
-  height: 85%;
-}
+
 
 .ms-6{
   margin-right: 22%;
@@ -114,4 +112,7 @@ p{
     top: 0;
     z-index: 1;
   }
+  .h-85{
+  height: 85% !important;
+}
 }
