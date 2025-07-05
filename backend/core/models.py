@@ -1,6 +1,10 @@
 from django.db import models
 from users.models import CoachProfile
 
+# Training Program
+# TrainerRating
+# ProgramRating
+# TrainerGym
 
 DIFFICULTY_COICES = [
     ("begginer","Beginner"),
@@ -18,3 +22,23 @@ class TrainingPrograms(models.Model):
     
     def __str__(self):
         return self.title
+    
+class TrainerRating(models.Model):
+    trainer = models.ForeignKey(CoachProfile, on_delete=models.CASCADE, related_name='ratings')
+    rating = models.PositiveSmallIntegerField()
+    review = models.TextField(blank=True)
+    ip_address = models.GenericIPAddressField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('trainer', 'ip_address')
+
+class ProgramRating(models.Model):
+    program = models.ForeignKey(TrainingPrograms, on_delete=models.CASCADE, related_name='ratings')
+    rating = models.PositiveSmallIntegerField()
+    review = models.TextField(blank=True)
+    ip_address = models.GenericIPAddressField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        unique_together = ('program', 'ip_address')
