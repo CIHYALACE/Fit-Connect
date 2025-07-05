@@ -4,16 +4,31 @@ from users.models import CoachProfile
 from core.models import TrainingPrograms
 from core.serializers import TrainingProgramSerializer
 from core.views import TrainingProgramsViewSet
+from django.contrib.auth import get_user_model
+from django.core.files.uploadedfile import SimpleUploadedFile
+import os
+from django.conf import settings
 
 # Python
 
+User = get_user_model()
+
 class TrainingProgramsViewSetTest(APITestCase):
     def setUp(self):
+        self.user = User.objects.create_user(name="Abdo", email="abdo@gmail.com", password='testpass')
         self.coach = CoachProfile.objects.create(
-            user_id=1,  # adjust as needed for your user model
+            user=self.user,
             bio="Test coach",
-            experience="5 years"
+            experience_years=5
         )
+        # Use an actual image from media/training_programs/
+        image_path = os.path.join(settings.MEDIA_ROOT, 'training_programs', 'SummerForm_Hossam.jpeg')  # Replace with an actual file name
+        with open(image_path, 'rb') as img_file:
+            self.dummy_image = SimpleUploadedFile(
+                name='test_image.jpg',
+                content=img_file.read(),
+                content_type='image/jpeg'
+            )
         self.program = TrainingPrograms.objects.create(
             title="Test Program",
             auther=self.coach,
@@ -21,8 +36,9 @@ class TrainingProgramsViewSetTest(APITestCase):
             description="A test training program",
             price=99.99,
             difficulty_level="begginer",
-            image=""
+            image=self.dummy_image
         )
+        self.client.force_authenticate(user=self.user)
 
     def test_list_training_programs(self):
         url = reverse('trainingprograms-list')
@@ -32,6 +48,13 @@ class TrainingProgramsViewSetTest(APITestCase):
 
     def test_create_training_program(self):
         url = reverse('trainingprograms-list')
+        image_path = os.path.join(settings.MEDIA_ROOT, 'training_programs', 'SummerForm_Hossam.jpeg')
+        with open(image_path, 'rb') as img_file:
+            dummy_image = SimpleUploadedFile(
+                name='test_image.jpg',
+                content=img_file.read(),
+                content_type='image/jpeg'
+            )
         data = {
             "title": "New Program",
             "auther": self.coach.id,
@@ -39,9 +62,10 @@ class TrainingProgramsViewSetTest(APITestCase):
             "description": "A new training program",
             "price": 120.00,
             "difficulty_level": "intermediate",
-            "image": ""
+            "image": dummy_image
         }
-        response = self.client.post(url, data)
+        response = self.client.post(url, data, format='multipart')
+        print("CREATE RESPONSE:", response.data)
         self.assertEqual(response.status_code, 201)
         self.assertEqual(TrainingPrograms.objects.count(), 2)
 
@@ -53,6 +77,13 @@ class TrainingProgramsViewSetTest(APITestCase):
 
     def test_update_training_program(self):
         url = reverse('trainingprograms-detail', args=[self.program.id])
+        image_path = os.path.join(settings.MEDIA_ROOT, 'training_programs', 'SummerForm_Hossam.jpeg')
+        with open(image_path, 'rb') as img_file:
+            dummy_image = SimpleUploadedFile(
+                name='test_image.jpg',
+                content=img_file.read(),
+                content_type='image/jpeg'
+            )
         data = {
             "title": "Updated Program",
             "auther": self.coach.id,
@@ -60,9 +91,10 @@ class TrainingProgramsViewSetTest(APITestCase):
             "description": "Updated description",
             "price": 150.00,
             "difficulty_level": "advanced",
-            "image": ""
+            "image": dummy_image
         }
-        response = self.client.put(url, data)
+        response = self.client.put(url, data, format='multipart')
+        print("UPDATE RESPONSE:", response.data)
         self.assertEqual(response.status_code, 200)
         self.program.refresh_from_db()
         self.assertEqual(self.program.title, "Updated Program")
