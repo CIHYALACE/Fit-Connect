@@ -5,10 +5,10 @@ from django.core.validators import RegexValidator
 
 USER_ROLE_CHOICES = [
     ("admin", "Admin"),
-    ("coach", "Coach")
+    ("trainer", "trainer")
 ]
 
-COACH_PERMISSIONS = [
+trainer_PERMISSIONS = [
     'view_own_profile',
     'edit_own_profile',
     'view_clients',
@@ -67,20 +67,20 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.email
 
-    def has_coach_permission(self, permission):
+    def has_trainer_permission(self, permission):
         if self.is_superuser:
             return True
-        if self.role == 'coach' and permission in COACH_PERMISSIONS:
+        if self.role == 'trainer' and permission in trainer_PERMISSIONS:
             return True
         return False
 
 class TrainerProfile(models.Model):
-    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='coach_profile')
+    user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='trainer_profile')
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     bio = models.TextField()
     experience_years = models.IntegerField()
-    picture = models.ImageField(upload_to='coach_profiles/', blank=True, null=True)
+    picture = models.ImageField(upload_to='trainer_profiles/', blank=True, null=True)
     specialties = models.TextField(choices=COUCH_SPECIALTIES_CHOICES)
     certification = models.FileField(upload_to='certifications/', blank=True, null=True)
     gym = models.ForeignKey('core.Gym', on_delete=models.SET_NULL, null=True, blank=True, related_name='trainers')
@@ -91,8 +91,8 @@ class TrainerProfile(models.Model):
 
     class Meta:
         permissions = [
-            ("view_own_profile", "Can view own coach profile"),
-            ("edit_own_profile", "Can edit own coach profile"),
+            ("view_own_profile", "Can view own trainer profile"),
+            ("edit_own_profile", "Can edit own trainer profile"),
             ("view_clients", "Can view assigned clients"),
             ("manage_clients", "Can manage assigned clients"),
             ("create_workouts", "Can create workout plans"),

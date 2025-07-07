@@ -1,6 +1,6 @@
 from rest_framework.test import APITestCase
 from django.urls import reverse
-from users.models import CoachProfile
+from users.models import trainerProfile
 from core.models import TrainingPrograms
 from core.serializers import TrainingProgramSerializer
 from core.views import TrainingProgramsViewSet
@@ -16,9 +16,9 @@ User = get_user_model()
 class TrainingProgramsViewSetTest(APITestCase):
     def setUp(self):
         self.user = User.objects.create_user(name="Abdo", email="abdo@gmail.com", password='testpass')
-        self.coach = CoachProfile.objects.create(
+        self.trainer = trainerProfile.objects.create(
             user=self.user,
-            bio="Test coach",
+            bio="Test trainer",
             experience_years=5
         )
         # Use an actual image from media/training_programs/
@@ -31,7 +31,7 @@ class TrainingProgramsViewSetTest(APITestCase):
             )
         self.program = TrainingPrograms.objects.create(
             title="Test Program",
-            auther=self.coach,
+            auther=self.trainer,
             duration="4 weeks",
             description="A test training program",
             price=99.99,
@@ -57,7 +57,7 @@ class TrainingProgramsViewSetTest(APITestCase):
             )
         data = {
             "title": "New Program",
-            "auther": self.coach.id,
+            "auther": self.trainer.id,
             "duration": "6 weeks",
             "description": "A new training program",
             "price": 120.00,
@@ -86,7 +86,7 @@ class TrainingProgramsViewSetTest(APITestCase):
             )
         data = {
             "title": "Updated Program",
-            "auther": self.coach.id,
+            "auther": self.trainer.id,
             "duration": "8 weeks",
             "description": "Updated description",
             "price": 150.00,

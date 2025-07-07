@@ -18,6 +18,10 @@ class TrainerRatingViewSet(viewsets.ModelViewSet):
     queryset = TrainerRating.objects.all()
     serializer_class = TrainerRatingSerializer
 
+    def perform_create(self, serializer):
+        ip = self.request.META.get('REMOTE_ADDR')
+        serializer.save(ip_address=ip)
+
     def create(self, request, *args, **kwargs):
         ip = get_client_ip(request)
         trainer_id = request.data.get('trainer')

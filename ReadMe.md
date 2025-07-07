@@ -1,6 +1,6 @@
 # Fit Connect
 
-Fit Connect is a full-stack fitness platform designed to connect users with professional coaches and high-quality training programs. The project features a modern React frontend (with Vite, Bootstrap, and Tailwind CSS) and a Django backend.
+Fit Connect is a full-stack fitness platform designed to connect users with professional Traineres and high-quality training programs. The project features a modern React frontend (with Vite, Bootstrap, and Tailwind CSS) and a Django backend.
 
 ---
 
@@ -9,14 +9,14 @@ Fit Connect is a full-stack fitness platform designed to connect users with prof
 - **Browse Training Programs:**  
   Users can view a variety of training programs, each with details like title, duration, description, price, difficulty level, and author.
 
-- **Coach Directory:**  
-  Explore a list of professional coaches, each with their own profile and specialties.
+- **Trainer Directory:**  
+  Explore a list of professional Traineres, each with their own profile and specialties.
 
 - **Responsive UI:**  
   The frontend is built with React, Bootstrap, and Tailwind CSS for a modern, responsive design.
 
 - **API Integration:**  
-  Data is fetched from a Django REST API for both training programs and coaches.
+  Data is fetched from a Django REST API for both training programs and Traineres.
 
 - **Reusable Components:**  
   Includes modular components such as Header, Footer, HeroSection, ProductsSection, and TrainingCard.

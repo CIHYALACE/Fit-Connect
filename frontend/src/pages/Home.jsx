@@ -3,17 +3,17 @@ import ProductsSection from "../components/ProductsSection";
 import CouchesSection from "../components/CouchesSection";
 import { useEffect , useState } from "react";
 import { getTrainingPrograms } from "../api/api";
-import { getCoachesList } from "../api/api";
+import { getTrainersList } from "../api/api";
 
 
 export default function Home() {
 
   const [programs, setProgramss] = useState([]);
-  const [coaches, setCoaches] = useState([])
+  const [Trainers, setTrainers] = useState([])
 
   useEffect(() => {
     fetchPrograms();
-    fetchCoaches();
+    fetchTrainers();
   }, []);
 // ! To Fetch Programs
   const fetchPrograms = async () => {
@@ -29,18 +29,18 @@ export default function Home() {
     console.log(`Programs:`, programs);
   }
 
-// ! To Fetch Coaches
-  const fetchCoaches = async () => {
+// ! To Fetch Trainers
+  const fetchTrainers = async () => {
     try {
-      const response = await getCoachesList();
-      // console.log("Coaches: ",response.data);
-      setCoaches(response.data);
+      const response = await getTrainersList();
+      // console.log("Trainers: ",response.data);
+      setTrainers(response.data);
     } catch (error) {
       console.error("Error fetching programs:", error);
     }
   }
-  if (coaches && coaches.length > 0) {
-    console.log(`Coaches:`, coaches);
+  if (Trainers && Trainers.length > 0) {
+    console.log(`Trainers:`, Trainers);
   }
 
   return (

@@ -10,7 +10,8 @@ class TrainingProgramSerializer(serializers.ModelSerializer):
 class TrainerRatingSerializer(serializers.ModelSerializer):
     class Meta:
         model = TrainerRating
-        fields = ['trainer', 'rating', 'review']
+        fields = ['trainer', 'rating', 'review', 'ip_address']
+        extra_kwargs = {'ip_address': {'read_only': True}}
 
 class ProgramRatingSerializer(serializers.ModelSerializer):
     class Meta:

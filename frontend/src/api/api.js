@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Programs_URL = "http://127.0.0.1:8000/api/training_programs/";
-const Coaches_URL = "http://127.0.0.1:8000/api/coaches_list/";
+const Trainers_URL = "http://127.0.0.1:8000/api/Trainers_list/";
 
 // ! For Training Programs Endpoint
 const getTrainingPrograms = () => axios.get(Programs_URL);
@@ -10,12 +10,12 @@ const createTrainingProgram = (program) => axios.post(Programs_URL, program);
 const updateTrainingProgram = (id, program) => axios.put(`${Programs_URL}/${id}`, program);
 const deleteTrainingProgram = (id) => axios.delete(`${Programs_URL}/${id}`);
 
-// ! For Coaches Endpoint
-const getCoachesList = () => axios.get(Coaches_URL);
-const getCoachById = (id) => axios.get(`${Coaches_URL}/${id}`);
-const createNewCoach = (coach) => axios.post(Coaches_URL, coach);
-const updateCoachData = (id, coach) => axios.put(`${Coaches_URL}/${id}`, coach);
-const deleteCouach = (id) => axios.delete(`${Coaches_URL}/${id}`);
+// ! For Trainers Endpoint
+const getTrainersList = () => axios.get(Trainers_URL);
+const getTrainerById = (id) => axios.get(`${Trainers_URL}/${id}`);
+const createNewTrainer = (Trainer) => axios.post(Trainers_URL, Trainer);
+const updateTrainerData = (id, Trainer) => axios.put(`${Trainers_URL}/${id}`, Trainer);
+const deleteCouach = (id) => axios.delete(`${Trainers_URL}/${id}`);
 
 export {
   getTrainingPrograms,
@@ -24,9 +24,9 @@ export {
   updateTrainingProgram,
   deleteTrainingProgram,
   //!
-  getCoachesList,
-  getCoachById,
-  createNewCoach,
-  updateCoachData,
+  getTrainersList,
+  getTrainerById,
+  createNewTrainer,
+  updateTrainerData,
   deleteCouach,
 };
