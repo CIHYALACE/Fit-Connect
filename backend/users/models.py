@@ -74,7 +74,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
             return True
         return False
 
-class CoachProfile(models.Model):
+class TrainerProfile(models.Model):
     user = models.OneToOneField(CustomUser, on_delete=models.CASCADE, related_name='coach_profile')
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
@@ -83,6 +83,7 @@ class CoachProfile(models.Model):
     picture = models.ImageField(upload_to='coach_profiles/', blank=True, null=True)
     specialties = models.TextField(choices=COUCH_SPECIALTIES_CHOICES)
     certification = models.FileField(upload_to='certifications/', blank=True, null=True)
+    gym = models.ForeignKey('core.Gym', on_delete=models.SET_NULL, null=True, blank=True, related_name='trainers')
     is_verified = models.BooleanField(default=False)
 
     def __str__(self):

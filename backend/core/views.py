@@ -1,13 +1,17 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from .models import TrainingPrograms, TrainerRating, ProgramRating
-from .serializers import TrainingProgramSerializer, TrainerRatingSerializer, ProgramRatingSerializer
+from .models import TrainingPrograms, TrainerRating, ProgramRating, Gym
+from .serializers import TrainingProgramSerializer, TrainerRatingSerializer, ProgramRatingSerializer, GymSerializer
 from .utils import get_client_ip
 
 class TrainingProgramsViewSet(viewsets.ModelViewSet):
     queryset = TrainingPrograms.objects.all()
     serializer_class = TrainingProgramSerializer
+
+class GymViewSet(viewsets.ModelViewSet):
+    queryset = Gym.objects.prefetch_related('trainers').all()
+    serializer_class = GymSerializer
 
 
 class TrainerRatingViewSet(viewsets.ModelViewSet):

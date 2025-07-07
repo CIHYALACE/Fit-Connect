@@ -1,5 +1,5 @@
 from django.db import models
-from users.models import CoachProfile
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 # Training Program
 # TrainerRating
@@ -13,7 +13,7 @@ DIFFICULTY_COICES = [
 ]
 class TrainingPrograms(models.Model):
     title = models.CharField(max_length=100)
-    auther = models.ForeignKey(CoachProfile, on_delete=models.CASCADE)
+    auther = models.ForeignKey('users.TrainerProfile', on_delete=models.CASCADE)
     duration = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
@@ -24,8 +24,8 @@ class TrainingPrograms(models.Model):
         return self.title
     
 class TrainerRating(models.Model):
-    trainer = models.ForeignKey(CoachProfile, on_delete=models.CASCADE, related_name='ratings')
-    rating = models.PositiveSmallIntegerField()
+    trainer = models.ForeignKey('users.TrainerProfile', on_delete=models.CASCADE, related_name='ratings')
+    rating = models.PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     review = models.TextField(blank=True)
     ip_address = models.GenericIPAddressField()
     created_at = models.DateTimeField(auto_now_add=True)
@@ -35,10 +35,16 @@ class TrainerRating(models.Model):
 
 class ProgramRating(models.Model):
     program = models.ForeignKey(TrainingPrograms, on_delete=models.CASCADE, related_name='ratings')
-    rating = models.PositiveSmallIntegerField()
+    rating = models.PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     review = models.TextField(blank=True)
     ip_address = models.GenericIPAddressField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         unique_together = ('program', 'ip_address')
+
+class Gym(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.TextField()
+    latitude = models.DecimalField(max_digits=9, decimal_places=6,validators=[MinValueValidator(-90.0), MaxValueValidator(90.0)])
+    longitude = models.DecimalField(max_digits=9, decimal_places=6,validators=[MinValueValidator(-180.0), MaxValueValidator(180.0)])

@@ -1,8 +1,8 @@
 from rest_framework import serializers
-from .models import CoachProfile
+from .models import TrainerProfile
 
-class CoachProfileSerializer(serializers.ModelSerializer):
+class TrainerProfileSerializer(serializers.ModelSerializer):
     user = serializers.CharField(source='user.email', read_only=True)
     class Meta:
-        model = CoachProfile
+        model = TrainerProfile
         fields = '__all__'

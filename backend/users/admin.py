@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import CustomUser, CoachProfile
+from .models import CustomUser, TrainerProfile
 
 class CustomUserAdmin(UserAdmin):
     model = CustomUser
@@ -21,11 +21,11 @@ class CustomUserAdmin(UserAdmin):
         }),
     )
 
-class CoachProfileAdmin(admin.ModelAdmin):
+class TrainerProfileAdmin(admin.ModelAdmin):
     list_display = ('user', 'first_name', 'last_name', 'experience_years', 'is_verified')
     list_filter = ('is_verified', 'experience_years')
     search_fields = ('first_name', 'last_name', 'user__email')
     # readonly_fields = ('user',)
 
 admin.site.register(CustomUser, CustomUserAdmin)
-admin.site.register(CoachProfile, CoachProfileAdmin)
+admin.site.register(TrainerProfile, TrainerProfileAdmin)
