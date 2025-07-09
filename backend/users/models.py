@@ -18,7 +18,7 @@ trainer_PERMISSIONS = [
 ]
 
 COUCH_SPECIALTIES_CHOICES =[
-    ("fittnes", "Fittnes"),
+    ("fitness", "Fitness"),
     ("bodybuliding", "Body Building")
 ]
 

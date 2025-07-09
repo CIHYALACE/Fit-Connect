@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const Programs_URL = "http://127.0.0.1:8000/api/training_programs/";
-const Trainers_URL = "http://127.0.0.1:8000/api/trainers_list/";
+const API_BASE_URL = "http://127.0.0.1:8000/api";
+const Programs_URL = `${API_BASE_URL}/training_programs/`;
+const Trainers_URL = `${API_BASE_URL}/trainers_list/`;
+const Register_URL = `${API_BASE_URL}/register/`;
 
 // ! For Training Programs Endpoint
 const getTrainingPrograms = () => axios.get(Programs_URL);
@@ -13,7 +15,7 @@ const deleteTrainingProgram = (id) => axios.delete(`${Programs_URL}/${id}`);
 // ! For Trainers Endpoint
 const getTrainersList = () => axios.get(Trainers_URL);
 const getTrainerById = (id) => axios.get(`${Trainers_URL}/${id}`);
-const createNewTrainer = (Trainer) => axios.post(Trainers_URL, Trainer);
+const createNewTrainer = (userData) => axios.post(Register_URL, userData);
 const updateTrainerData = (id, Trainer) => axios.put(`${Trainers_URL}/${id}`, Trainer);
 const deleteCouach = (id) => axios.delete(`${Trainers_URL}/${id}`);
 
