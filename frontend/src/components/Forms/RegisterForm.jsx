@@ -1,31 +1,73 @@
+import { useState } from "react";
+import axios from "axios";
+
 export default function RegisterForm() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    confirmPassword: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async () => {
+    if (formData.password !== formData.confirmPassword) {
+      alert("Passwords do not match");
+      return;
+    }
+
+    const payload = {
+      ...formData,
+      name: `${formData.firstName} ${formData.lastName}`,
+    };
+    
+    try {
+      const response = await axios.post("/api/register", formData);
+      alert("Registration successful");
+    } catch (error) {
+      console.error("Registration error", error);
+      alert("Registration failed");
+    }
+  };
+
   return (
     <div className="h-custom d-flex flex-column justify-content-center px-4 gap-3 pt-4">
       <div>
         <p>Lets Get You Started</p>
         <p className="fs-3 fw-bold mb-2">Create An Account</p>
       </div>
-      <div class="row g-2">
-        <div class="col-md">
-          <div class="form-floating">
+      <div className="row g-2">
+        <div className="col-md">
+          <div className="form-floating">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="floatingInputGrid"
-              placeholder="Password"
+              placeholder="First Name"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
             />
-            <label for="floatingInputGrid">First Name</label>
+            <label htmlFor="floatingInputGrid">First Name</label>
           </div>
         </div>
-        <div class="col-md">
-          <div class="form-floating">
+        <div className="col-md">
+          <div className="form-floating">
             <input
               type="text"
-              class="form-control"
+              className="form-control"
               id="floatingInputGrid"
-              placeholder="Confirm Password"
+              placeholder="Last Name"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
             />
-            <label for="floatingInputGrid">Last Name</label>
+            <label htmlFor="floatingInputGrid">Last Name</label>
           </div>
         </div>
       </div>
@@ -35,30 +77,39 @@ export default function RegisterForm() {
           className="form-control"
           id="floatingInput"
           placeholder="name@example.com"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
         />
         <label htmlFor="floatingInput">Email address</label>
       </div>
-      <div class="row g-2">
-        <div class="col-md">
-          <div class="form-floating">
+      <div className="row g-2">
+        <div className="col-md">
+          <div className="form-floating">
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="floatingInputGrid"
               placeholder="Password"
+              name="password"
+              value={formData.password}
+              onChange={handleChange}
             />
-            <label for="floatingInputGrid">Password</label>
+            <label htmlFor="floatingInputGrid">Password</label>
           </div>
         </div>
-        <div class="col-md">
-          <div class="form-floating">
+        <div className="col-md">
+          <div className="form-floating">
             <input
               type="password"
-              class="form-control"
+              className="form-control"
               id="floatingInputGrid"
               placeholder="Confirm Password"
+              name="confirmPassword"
+              value={formData.confirmPassword}
+              onChange={handleChange}
             />
-            <label for="floatingInputGrid">Confirm Password</label>
+            <label htmlFor="floatingInputGrid">Confirm Password</label>
           </div>
         </div>
       </div>
@@ -78,7 +129,7 @@ export default function RegisterForm() {
           </label>
         </div>
       </div>
-      <button type="button" className="btn btn-dark">
+      <button type="button" className="btn btn-dark" onClick={handleSubmit}>
         <p className="py-0">Create An Account</p>
       </button>
       <div className="d-flex align-items-center">
