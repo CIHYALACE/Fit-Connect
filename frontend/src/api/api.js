@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const Programs_URL = "http://127.0.0.1:8000/api/training_programs/";
-const Trainers_URL = "http://127.0.0.1:8000/api/Trainers_list/";
+const Trainers_URL = "http://127.0.0.1:8000/api/trainers_list/";
 
 // ! For Training Programs Endpoint
 const getTrainingPrograms = () => axios.get(Programs_URL);
