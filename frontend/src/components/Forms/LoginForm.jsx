@@ -17,14 +17,14 @@ export default function LoginForm(){
                 <div>
                 <input className="form-check-input" type="checkbox" value="" id="flexCheckDefault"/>
                 <label className="form-check-label fs-7" htmlFor="flexCheckDefault">
-                    I've Read <a href="#" className="text-dark fw-bold">Terms&Conditions</a>
+                    Remeber Me
                 </label>
                 </div>
                 <label className="form-check-label fs-7" htmlFor="flexCheckDefault">
                     <a href="#" className="text-dark">Forgot Password?</a>
                 </label>
             </div>
-            <button type="button" className="btn btn-dark"><p className="py-1">CONTINUE</p></button>
+            <button type="button" className="btn btn-dark"><p className="py-1">Login</p></button>
             <div className="d-flex align-items-center">
                 <hr className="flex-grow-1"/>
                 <span className="mx-3">or</span>
@@ -39,7 +39,7 @@ export default function LoginForm(){
                 />
                 <span>Continue with Google</span>
             </button>
-            <p className="fs-7 align-self-center">New User? <a href="#" className="text-dark fw-bold">SignUp Here</a></p>
+            <p className="fs-7 align-self-center">New User? <a href="/register" className="text-dark fw-bold">SignUp Here</a></p>
         </div>
     )
 }

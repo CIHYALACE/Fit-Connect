@@ -1,4 +1,5 @@
 export default function Header() {
+  const token = localStorage.getItem("token")
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary sticky-md-mid">
       <div className="container d-flex justify-content-center">
@@ -31,7 +32,7 @@ export default function Header() {
             </a>
           </li>
           <li className="nav-item">
-            <a href="/account">
+            <a href={token ? "/profile" : "/login"}>
               <i className="text-dark fa-solid fa-circle-user fs-4 px-2"></i>
             </a>
           </li>

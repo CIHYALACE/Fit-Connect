@@ -11,7 +11,8 @@ export default function App() {
         <Route path='/' element={ <SharedLayout /> } >
           <Route path='/' element={ <Home /> } />
         </Route>
-        <Route path='account' element={ <AccountPage /> } />
+        <Route path='/login' element={ <AccountPage /> } />
+        <Route path='/register' element={ <AccountPage /> } />
       </Routes>
   )
 }

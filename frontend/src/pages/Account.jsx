@@ -1,6 +1,11 @@
+import { useLocation } from "react-router-dom";
 import LoginForm from "../components/Forms/LoginForm";
+import RegisterForm from "../components/Forms/RegisterForm";
 
 export default function AccountPage() {
+  const location = useLocation();
+  const path = location.pathname;
+
   return (
     <div className="min-vh-100 vw-100 overflow-hidden bg-img">
       <div className="row vh-100 justify-content-center g-0">
@@ -68,9 +73,15 @@ export default function AccountPage() {
           </div>
         </div>
 
-        <div className="col-10 col-md-4 rounded-top-5 align-self-center align-self-md-end h-100 h-85 bg-white">
-          <LoginForm />
-        </div>
+        {path === '/login' ? (
+          <div className="col-10 col-md-4 rounded-top-5 align-self-center align-self-md-end h-100 h-85 bg-white">
+            <LoginForm />
+          </div>
+        ) : path === '/register' ? (
+          <div className="col-10 col-md-4 rounded-top-5 align-self-center align-self-md-end h-100 h-85 bg-white">
+            <RegisterForm />
+          </div>
+        ) : null}
       </div>
     </div>
   );
