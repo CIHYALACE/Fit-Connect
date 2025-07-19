@@ -1,6 +1,6 @@
 from rest_framework.test import APITestCase
 from django.urls import reverse
-from users.models import trainerProfile
+from users.models import Trainer
 from core.models import TrainingPrograms
 from core.serializers import TrainingProgramSerializer
 from core.views import TrainingProgramsViewSet
@@ -16,7 +16,7 @@ User = get_user_model()
 class TrainingProgramsViewSetTest(APITestCase):
     def setUp(self):
         self.user = User.objects.create_user(name="Abdo", email="abdo@gmail.com", password='testpass')
-        self.trainer = trainerProfile.objects.create(
+        self.trainer = Trainer.objects.create(
             user=self.user,
             bio="Test trainer",
             experience_years=5

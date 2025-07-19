@@ -1,8 +1,14 @@
 from rest_framework import serializers
-from .models import TrainerProfile
+from .models import Trainer
 
-class TrainerProfileSerializer(serializers.ModelSerializer):
-    user = serializers.CharField(source='user.email', read_only=True)
+class TrainerSerializer(serializers.ModelSerializer):
+    profile_picture = serializers.ImageField(required=False)
+
     class Meta:
-        model = TrainerProfile
-        fields = '__all__'
+        model = Trainer
+        fields = [
+            'id', 'user', 'full_name', 'bio', 
+            'experience_years', 'profile_picture', 'specialties', 
+            'certification', 'phone_number', 'gym'
+        ]
+        read_only_fields = ['id','user', 'full_name', 'is_verified']

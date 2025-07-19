@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import TrainingPrograms, TrainerRating, ProgramRating, Gym
-from users.serializers import TrainerProfileSerializer
+from users.serializers import TrainerSerializer
 
 class TrainingProgramSerializer(serializers.ModelSerializer):
     class Meta:
@@ -19,7 +19,7 @@ class ProgramRatingSerializer(serializers.ModelSerializer):
         fields = ['program', 'rating', 'review']
 
 class GymSerializer(serializers.ModelSerializer):
-    trainers = TrainerProfileSerializer(many=True, read_only=True)
+    trainers = TrainerSerializer(many=True, read_only=True)
 
     class Meta:
         model = Gym

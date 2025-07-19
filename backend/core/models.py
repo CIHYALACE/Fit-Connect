@@ -11,10 +11,18 @@ DIFFICULTY_COICES = [
     ("intermediate", "Intermediate"),
     ("advanced", "Advanced")
 ]
+
+DURATION_CHOICES = [
+    ("1 month", "1 month"),
+    ("3 months", "3 months"),
+    ("6 months", "6 months"),
+    ("1 year", "1 year"),
+]
+
 class TrainingPrograms(models.Model):
     title = models.CharField(max_length=100)
-    auther = models.ForeignKey('users.TrainerProfile', on_delete=models.CASCADE)
-    duration = models.CharField(max_length=100)
+    auther = models.ForeignKey('users.Trainer', on_delete=models.CASCADE)
+    duration = models.CharField(max_length=100, choices=DURATION_CHOICES)
     description = models.TextField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
     difficulty_level = models.CharField(choices=DIFFICULTY_COICES, max_length=100)
@@ -24,7 +32,7 @@ class TrainingPrograms(models.Model):
         return self.title
     
 class TrainerRating(models.Model):
-    trainer = models.ForeignKey('users.TrainerProfile', on_delete=models.CASCADE, related_name='ratings')
+    trainer = models.ForeignKey('users.Trainer', on_delete=models.CASCADE, related_name='ratings')
     rating = models.PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     review = models.TextField(blank=True)
     ip_address = models.GenericIPAddressField()
