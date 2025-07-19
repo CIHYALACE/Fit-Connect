@@ -33,5 +33,5 @@ class Trainer(models.Model):
     
 
     class Meta:
-        verbose_name = "Trainer Profile"
-        verbose_name_plural = "Trainer Profiles"
+        verbose_name = "Trainer"
+        verbose_name_plural = "Trainers"
