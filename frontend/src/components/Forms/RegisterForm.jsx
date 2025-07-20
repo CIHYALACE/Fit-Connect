@@ -116,7 +116,7 @@ export default function RegisterForm() {
       
       <div className="row g-2 mb-2">
         <div className="col-md">
-          <div className="form-floating mb-2">
+          <div className="form-floating">
             <input
               type="text"
               className={`form-control ${errors.first_name ? "is-invalid" : ""}`}
@@ -125,6 +125,7 @@ export default function RegisterForm() {
               name="first_name"
               value={formData.first_name}
               onChange={handleChange}
+              style={{ height: "50px" }}
             />
             <label htmlFor="floatingFirstName">First Name</label>
             {errors.first_name && (
@@ -133,7 +134,7 @@ export default function RegisterForm() {
           </div>
         </div>
         <div className="col-md">
-          <div className="form-floating mb-2">
+          <div className="form-floating">
             <input
               type="text"
               className={`form-control ${errors.last_name ? "is-invalid" : ""}`}
@@ -142,6 +143,7 @@ export default function RegisterForm() {
               name="last_name"
               value={formData.last_name}
               onChange={handleChange}
+              style={{ height: "50px" }}
             />
             <label htmlFor="floatingLastName">Last Name</label>
             {errors.last_name && (
@@ -160,6 +162,7 @@ export default function RegisterForm() {
           name="email"
           value={formData.email}
           onChange={handleChange}
+          style={{ height: "50px" }}
         />
         <label htmlFor="floatingInput">Email address</label>
         {errors.email && (
@@ -179,6 +182,7 @@ export default function RegisterForm() {
               min="0"
               value={formData.experience_years}
               onChange={handleChange}
+              style={{ height: "50px" }}
             />
             <label htmlFor="floatingExperience">Experience (Years)</label>
             {errors.experience_years && (
@@ -194,6 +198,7 @@ export default function RegisterForm() {
               name="specialties" 
               onChange={handleChange}
               value={formData.specialties}
+              style={{ height: "50px" }}
             >
               <option value="fitness">Fitness</option>
               <option value="body building">Body Building</option>
@@ -214,6 +219,7 @@ export default function RegisterForm() {
               name="password"
               value={formData.password}
               onChange={handleChange}
+              style={{ height: "50px" }}
             />
             <label htmlFor="floatingPassword">Password</label>
             {errors.password && (
@@ -231,6 +237,7 @@ export default function RegisterForm() {
               name="confirmPassword"
               value={formData.confirmPassword}
               onChange={handleChange}
+              style={{ height: "50px" }}
             />
             <label htmlFor="floatingConfirmPassword">Confirm Password</label>
             {errors.confirmPassword && (
@@ -263,8 +270,9 @@ export default function RegisterForm() {
         className="btn btn-dark btn-sm py-1" 
         onClick={handleSubmit}
         disabled={isSubmitting}
+        // style={{ height: "50px" }}
       >
-        <p className="py-0">
+        <p className="py-1">
           {isSubmitting ? "Processing..." : "Create An Account"}
         </p>
       </button>
