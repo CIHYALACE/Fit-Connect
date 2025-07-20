@@ -1,9 +1,13 @@
 from rest_framework import viewsets, permissions, status
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.views import ObtainAuthToken
+from rest_framework.permissions import IsAuthenticated
 from .models import Trainer
-from .serializers import TrainerSerializer
+from .serializers import TrainerSerializer, UserLoginSerializer
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
 from django.core.mail import EmailMultiAlternatives
 from django.conf import settings
@@ -137,3 +141,39 @@ def activate_user(request, uidb64, token):
             {'error': 'Activation link is invalid or expired'},
             status=status.HTTP_400_BAD_REQUEST
         )
+
+@api_view(['POST'])
+@permission_classes([permissions.AllowAny])
+def user_login(request):
+    serializer = UserLoginSerializer(data=request.data, context={'request': request})
+    
+    if not serializer.is_valid():
+        return Response(
+            {'error': serializer.errors},
+            status=status.HTTP_400_BAD_REQUEST
+        )
+    
+    user = serializer.validated_data['user']
+    
+    # Check if the user is a trainer
+    try:
+        trainer = Trainer.objects.get(user=user)
+        user_type = 'trainer'
+    except Trainer.DoesNotExist:
+        return Response(
+            {'error': 'No trainer account found with these credentials'},
+            status=status.HTTP_403_FORBIDDEN
+        )
+    
+    # Create or get token
+    token, created = Token.objects.get_or_create(user=user)
+    
+    return Response({
+        'token': token.key,
+        'user_id': user.id,
+        'email': user.email,
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'user_type': user_type,
+        'trainer_id': trainer.id if user_type == 'trainer' else None
+    }, status=status.HTTP_200_OK)
