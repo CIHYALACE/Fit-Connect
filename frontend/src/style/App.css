@@ -175,6 +175,15 @@
   pointer-events: none;
 }
 
+.hover-bg {
+  transition: all 0.3s ease;
+}
+
+.hover-bg:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+
 /* Feature Items */
 .feature-card {
   border-radius: 10px;
@@ -254,6 +263,18 @@
   border-color: rgba(255, 255, 255, 0.3);
 }
 
+.btn-floating {
+  transition: all 0.3s ease;
+  opacity: 0.9;
+}
+
+.btn-floating:hover {
+  transform: translateY(-3px);
+  opacity: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
 /* ==================== */
 /* MISC UTILITIES */
 /* ==================== */
@@ -303,6 +324,13 @@ p {
   .order-lg-2 {
     order: 1;
     height: 50vh !important;
+  }
+  footer .col-md-4 {
+    margin-bottom: 2rem;
+  }
+  
+  footer .text-center {
+    text-align: center !important;
   }
 }
 
