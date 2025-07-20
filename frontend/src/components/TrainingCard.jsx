@@ -10,8 +10,10 @@ export default function TrainingCard({name, auther, price, img}) {
                         objectFit: 'cover',
                         objectPosition: 'center',
                         top: 0,
-                        left: 0
+                        left: 0,
+                        cursor: 'pointer'
                     }}
+                    onClick={() => window.location.href = '#'}
                 />
             </div>
             <div className="mt-auto">
