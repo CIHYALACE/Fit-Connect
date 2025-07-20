@@ -25,7 +25,7 @@ export default function NavBar() {
   const isActive = (path) => (activeLink === path ? "active" : "");
 
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-dark">
       <div class="container">
         <a class="navbar-brand me-2 p-0" href="/">
           <img

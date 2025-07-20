@@ -3,39 +3,47 @@ import FeatureItem from './FeatureItem';
 
 export default function WhyFitConnect() {
   return (
-    <section className="why-fitconnect container bg-dark text-white py-5 mb-5 rounded">
-      <div className="container-xxl"> {/* Changed to container-xxl for modern wide screens */}
-        <div className="container py-4"> {/* Nested container for content */}
-          <div className="text-center mb-5">
-            <h2 className="display-5 fw-bold">
-              <span className="text-white"> Why </span>
-              <span className="text-danger">FitConnect</span>
-              <span className="text-white"> ?</span>
-            </h2>
-            <p className="lead text-muted mb-4">Discover what makes us different</p>
-          </div>
-          
-          <div className="row g-4 justify-content-center">
-            <FeatureItem 
-              icon="fa fa-heartbeat"
-              title="Personalized Plans"
-              description="Tailored workouts for your goals"
-            />
-            <FeatureItem 
-              icon="fa fa-certificate"
-              title="Certified Trainers"
-              description="Expert guidance you can trust"
-            />
-            <FeatureItem 
-              icon="fa fa-line-chart"
-              title="Progress Tracking"
-              description="Visualize your improvement"
-            />
-            <FeatureItem 
-              icon="fa fa-mobile"
-              title="Mobile Friendly"
-              description="Access anywhere, anytime"
-            />
+    <section className="why-fitconnect bg-gradient-dark text-white rounded-4 mb-5 container" style={{ minHeight: '95vh' }}>
+      <div className="container py-5 h-100">
+        <div className="row justify-content-center align-items-center h-100">
+          <div className="col-12">
+            <div className="text-center mb-5 px-3">
+              <h2 className="display-3 fw-bold mb-4">
+                <span className="text-white">Why </span>
+                <span className="text-primary-gradient">FitConnect</span>
+                <span className="text-white">?</span>
+              </h2>
+              <p className="lead text-light opacity-85 mb-4" style={{ maxWidth: '700px', margin: '0 auto' }}>
+                Discover what makes us the premier fitness platform
+              </p>
+            </div>
+            
+            <div className="row g-4 justify-content-center">
+              <FeatureItem 
+                icon="fa fa-heartbeat text-primary"
+                title="Personalized Plans"
+                description="Tailored workouts designed for your specific goals"
+                colorClass="bg-primary-soft"
+              />
+              <FeatureItem 
+                icon="fa fa-certificate text-success"
+                title="Certified Trainers"
+                description="Expert guidance from accredited professionals"
+                colorClass="bg-success-soft"
+              />
+              <FeatureItem 
+                icon="fa fa-line-chart text-info"
+                title="Progress Tracking"
+                description="Comprehensive analytics to monitor your journey"
+                colorClass="bg-info-soft"
+              />
+              <FeatureItem 
+                icon="fa fa-mobile text-warning"
+                title="Mobile Friendly"
+                description="Full platform access anywhere, anytime"
+                colorClass="bg-warning-soft"
+              />
+            </div>
           </div>
         </div>
       </div>

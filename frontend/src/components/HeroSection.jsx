@@ -25,22 +25,22 @@ export default function HeroSection() {
         </div>
 
         <div className="d-flex flex-wrap mt-3 justify-content-center">
-    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-4 bg-dark">
+    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-4 bg-gradient-dark">
         <h2 className="fw-bold text-light">200+</h2>
         <p className="text-light">Trainers</p>
     </div>
 
-    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-3 bg-dark">
+    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-3 bg-gradient-dark">
         <h2 className="fw-bold text-light">50+</h2>
         <p className="text-light">Training Program</p>
     </div>
 
-    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-4 bg-dark">
+    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-4 bg-gradient-dark">
         <h2 className="fw-bold text-light">3K+</h2>
         <p className="text-light">Active Users</p>
     </div>
 
-    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-3 bg-dark">
+    <div className="border border-2 border-muted rounded col-6 col-md-4 col-lg-3 px-3 bg-gradient-dark">
         <h2 className="fw-bold text-light">16K+</h2>
         <p className="text-light">Transformation</p>
     </div>

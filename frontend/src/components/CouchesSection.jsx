@@ -2,7 +2,7 @@ export default function CouchesSection() {
     return (
         <section className="couches-section d-flex align-items-center">
             <div className="container">
-                <div className="row g-0 h-80vh align-items-center bg-dark overflow-hidden rounded-4 shadow-lg">
+                <div className="row g-0 h-95vh align-items-center bg-gradient-dark overflow-hidden rounded-4 shadow-lg">
                     {/* Text Content */}
                     <div className="col-12 col-lg-6 p-5 p-xl-5 order-lg-1">
                         <div className="max-w-lg mx-auto py-4">
@@ -24,7 +24,7 @@ export default function CouchesSection() {
                     </div>
 
                     {/* Image Content */}
-                    <div className="col-12 col-lg-6 order-lg-2 h-80vh position-relative">
+                    <div className="col-12 col-lg-6 order-lg-2 h-95vh position-relative">
                         <img 
                             src="/BigMan.jpeg" 
                             alt="Luxury couch in modern living room" 
