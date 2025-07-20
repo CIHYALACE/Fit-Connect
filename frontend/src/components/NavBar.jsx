@@ -27,13 +27,13 @@ export default function NavBar() {
   return (
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="/">
+        <a class="navbar-brand me-2 p-0" href="/">
           <img
             id="MDB-logo"
-            src="https://mdbcdn.b-cdn.net/wp-content/uploads/2018/06/logo-mdb-jquery-small.png"
-            alt="MDB Logo"
+            src="/Logo3.png"
+            alt="FinConect Logo"
             draggable="false"
-            height="30"
+            width="150"
           />
         </a>
 
@@ -50,29 +50,9 @@ export default function NavBar() {
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-3">
-            <li class="nav-item">
-              <a
-                class="nav-link active d-flex align-items-center"
-                aria-current="page"
-                href="#"
-              >
-                <i class="fas fa-bars pe-2"></i>Menu
-              </a>
-            </li>
-          </ul>
 
           <form class="d-flex align-items-center w-100 form-search">
             <div class="input-group">
-              <button
-                class="btn btn-light dropdown-toggle shadow-0"
-                type="button"
-                data-mdb-dropdown-init
-                aria-expanded="false"
-                style={{paddingBottom: "0.4rem"}}
-              >
-                All
-              </button>
               <ul class="dropdown-menu dropdown-menu-dark fa-ul">
                 <li>
                   <a class="dropdown-item" href="#">

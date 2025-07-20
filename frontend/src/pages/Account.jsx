@@ -9,17 +9,15 @@ export default function AccountPage() {
   return (
     <div className="min-vh-100 vw-100 overflow-hidden bg-img">
       <div className="row vh-100 justify-content-center g-0">
-        <div className="d-none d-md-flex flex-column justify-content-evenly flex-wrap col-md-4 mt-5 h-75">
-          <h3 className="text-light ps-5 mt-5">
+        <div className="d-none d-md-flex flex-column justify-content-evenly col-md-4 mt-5 h-75">
+          <div className="text-light">
             <img
-              alt=""
-              src="icons8-dumbbell-50(1).png"
-              width="45"
-              height="45"
+              alt="Company Logo"
+              src="/Logo3.png"
+              width="250"
               className="d-inline-block align-top"
-            />{" "}
-            Fit Connect
-          </h3>
+            />
+          </div>
 
           <div className="d-flex flex-column gap-5 text-light">
             <h3 className="px-5 fs-2 fw-bold">
