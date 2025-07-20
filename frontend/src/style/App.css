@@ -180,6 +180,75 @@ p{
   color: #ff3333 !important;
 } */
 
+.couches-section {
+  --section-padding: 5rem;
+  padding: var(--section-padding) 0;
+}
+
+.h-80vh {
+  height: 95vh !important;
+  min-height: 500px; /* Fallback */
+}
+
+.text-white-80 {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.max-w-lg {
+  max-width: 32rem;
+}
+
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+/* Image treatment */
+.object-fit-cover {
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* Button animations */
+.btn-light {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.btn-light:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+}
+
+.btn-outline-light:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .h-80vh {
+      height: auto !important;
+  }
+  
+  .order-lg-1 {
+      order: 2;
+      padding-bottom: 3rem !important;
+  }
+  
+  .order-lg-2 {
+      order: 1;
+      height: 50vh !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .display-4 {
+      font-size: 2.5rem;
+  }
+  
+  .couches-section {
+      --section-padding: 3rem;
+  }
+}
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .icon-wrapper {
