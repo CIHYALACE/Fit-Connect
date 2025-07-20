@@ -13,6 +13,7 @@ from django.urls import reverse
 from django.shortcuts import redirect
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.html import strip_tags
+from django.db import transaction, IntegrityError
 import logging
 
 logger = logging.getLogger(__name__)
@@ -64,7 +65,7 @@ def send_activation_email(user, request):
 @permission_classes([permissions.AllowAny])
 def register_user(request):
     data = request.data
-    required_fields = ['email', 'password', 'first_name', 'last_name', 'bio', 'experience_years']
+    required_fields = ['email', 'password', 'first_name', 'last_name', 'experience_years']
     missing_fields = [field for field in required_fields if field not in data]
     
     if missing_fields:
@@ -74,42 +75,50 @@ def register_user(request):
         )
 
     try:
-        # Create User first
-        user = User.objects.create_user(
-            username=data['email'],
-            email=data['email'],
-            first_name=data['first_name'],
-            last_name=data['last_name'],
-            password=data['password'],
-            is_active=False
-        )
+        with transaction.atomic():  # Ensure both operations succeed or fail together
+            # Create User first
+            user = User.objects.create_user(
+                username=data['email'],
+                email=data['email'],
+                first_name=data['first_name'],
+                last_name=data['last_name'],
+                password=data['password'],
+                is_active=False
+            )
 
-        # Then create Trainer
-        profile_data = {
-            'user': user.id,
-            'bio': data['bio'],
-            'experience_years': data['experience_years'],
-            'specialties': data.get('specialties', 'fitness'),
-            'phone_number': data.get('phone_number'),
-        }
-        
-        serializer = TrainerSerializer(data=profile_data, context={'request': request})
-        if serializer.is_valid():
-            serializer.save()
+            # Create Trainer with the user instance directly (not ID)
+            trainer = Trainer.objects.create(
+                user=user,  # Pass the user object directly
+                bio=data.get('bio', ''),
+                experience_years=data['experience_years'],
+                specialties=data.get('specialties', 'fitness'),
+                phone_number=data.get('phone_number', ''),
+            )
+
+            # If you need serializer validation, do it like this:
+            serializer = TrainerSerializer(trainer, context={'request': request})
+            
             send_activation_email(user, request)
             return Response(
-                {'message': 'User registered successfully. Please check your email to activate.'},
+                {
+                    'message': 'User registered successfully. Please check your email to activate.',
+                    'data': serializer.data
+                },
                 status=status.HTTP_201_CREATED
             )
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
+    except IntegrityError as e:
+        logger.error(f'Registration integrity error: {str(e)}')
+        return Response(
+            {'error': 'Registration failed - data conflict', 'details': str(e)},
+            status=status.HTTP_400_BAD_REQUEST
+        )
     except Exception as e:
         logger.error(f'Registration error: {str(e)}')
         return Response(
             {'error': 'Registration failed', 'details': str(e)},
             status=status.HTTP_400_BAD_REQUEST
         )
-
 @api_view(['GET'])
 @permission_classes([permissions.AllowAny])
 def activate_user(request, uidb64, token):
