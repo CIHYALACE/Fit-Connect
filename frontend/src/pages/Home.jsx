@@ -1,5 +1,6 @@
 import HeroSection from "../components/HeroSection";
 import ProductsSection from "../components/ProductsSection";
+import WhyUsSection from "../components/WhyUsSection";
 import CouchesSection from "../components/CouchesSection";
 import { useEffect , useState } from "react";
 import { getTrainingPrograms } from "../api/api";
@@ -47,6 +48,7 @@ export default function Home() {
     <>
       <HeroSection />
       <ProductsSection programs={programs}/>
+      <WhyUsSection />
       <CouchesSection />
     </>
   );

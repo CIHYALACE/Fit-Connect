@@ -144,6 +144,54 @@ p{
   opacity: 0.65;
 }
 
+/* Main container */
+.why-fitconnect {
+  background-color: #000;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Icon styling */
+.icon-wrapper {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+}
+
+/* Feature card styling */
+.feature-card {
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  border: 1px solid #333;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(255, 51, 51, 0.2);
+  border-color: #ff3333;
+}
+
+.feature-card:hover .icon-wrapper {
+  background-color: #fff;
+}
+
+/* .feature-card:hover .icon-wrapper i {
+  color: #ff3333 !important;
+} */
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .icon-wrapper {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .feature-card {
+    margin-bottom: 20px;
+  }
+}
+
 @media (min-width: 768px) {
   .sticky-md-mid {
     position: sticky;
