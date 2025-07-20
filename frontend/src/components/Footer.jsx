@@ -114,7 +114,7 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="text-center p-3 border-top border-dark">
+        <div className="text-center p-3 border-top border-light">
           &copy; {currentYear} {companyName}. All rights reserved.
         </div>
       </footer>

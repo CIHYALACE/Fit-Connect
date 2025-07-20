@@ -3,7 +3,7 @@ import FeatureItem from './FeatureItem';
 
 export default function WhyFitConnect() {
   return (
-    <section className="why-fitconnect bg-gradient-dark text-white rounded-4 mb-5 container" style={{ minHeight: '95vh' }}>
+    <section className="why-fitconnect bg-gradient-dark text-white rounded-4 mb-5 mx-3 mx-lg-5" style={{ minHeight: '95vh' }}>
       <div className="container py-5 h-100">
         <div className="row justify-content-center align-items-center h-100">
           <div className="col-12">

@@ -42,17 +42,24 @@ useEffect(() => {
 
   ]
   return (
-    <>
-      <div className="vh-100 container mt-5">
-        <h3 className="big-shoulders fw-bold mb-4 ps-1 ps-md-4">Training Programs:</h3>
-        <div className="d-flex justify-content-around flex-wrap h-75 text-center">
-
-        {dumbData.slice(0, 4).map((item,id) =>(
-            <TrainingCard key={id} name={item.name} auther={item.auther} price={item.price} img={item.img} />
-        ))}
-
+    <section className="py-5">
+      <div className="mx-3 mx-lg-5">
+        <div className="text-center mb-5">
+          <h3 className="big-shoulders fw-bold d-inline-block border-bottom border-3 border-dark pb-2">Training Programs</h3>
+        </div>
+        <div className="row g-4">
+          {dumbData.slice(0, 4).map((item, id) => (
+            <div key={id} className="col-6 col-sm-6 col-lg-3">
+              <TrainingCard 
+                name={item.name} 
+                auther={item.auther} 
+                price={item.price} 
+                img={item.img} 
+              />
+            </div>
+          ))}
         </div>
       </div>
-    </>
+    </section>
   );
 }
