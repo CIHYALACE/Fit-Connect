@@ -1,7 +1,14 @@
-export default function TrainerCard({ first_name, last_name, img }) {
+import { useNavigate } from "react-router-dom";
+
+export default function TrainerCard({id, first_name, last_name, img }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(`/trainers/${id}`);
+  };
   return (
     <div className="h-100 d-flex flex-column">
-      <div className="profile-card-2 trainer-card position-relative overflow-hidden rounded-3 mb-3" style={{ paddingBottom: '133.33%' }}>
+      <div className="profile-card-2 trainer-card position-relative overflow-hidden rounded-2 rounded-md-3 mb-0 mb-md-3" style={{ paddingBottom: '133.33%' }}>
         <img
           src={img}
           className="position-absolute w-100 h-100"
@@ -9,7 +16,7 @@ export default function TrainerCard({ first_name, last_name, img }) {
           style={{ objectFit: "cover", objectPosition: "center" }}
         />
         <div className="profile-name">
-            <a href="#" className="text-light text-decoration-none">
+            <a onClick={handleClick} className="text-light text-decoration-none flex-wrap-nowrap fs-6 fs-md-3" style={{ cursor: "pointer" }}>
                 {first_name} {last_name}
             </a>
         </div>

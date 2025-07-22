@@ -46,6 +46,7 @@ useEffect(() => {
           {dumbData.slice(0, 4).map((item, id) => (
             <div key={id} className="col-6 col-sm-6 col-lg-3">
               <TrainerCard
+                id={item.id}
                 first_name={item.first_name}
                 last_name={item.last_name} 
                 img={item.img} 
