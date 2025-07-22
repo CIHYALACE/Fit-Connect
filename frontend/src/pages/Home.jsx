@@ -3,6 +3,7 @@ import ProductsSection from "../components/ProductsSection";
 import WhyUsSection from "../components/WhyUsSection";
 import CouchesSection from "../components/CouchesSection";
 import TrainersSections from "../components/TrainersSections";
+import { trainersData } from "../components/DumbData";
 import { useEffect , useState } from "react";
 import { getTrainingPrograms } from "../api/api";
 import { getTrainersList } from "../api/api";
