@@ -1,6 +1,6 @@
 export default function CertificationsSection() {
   return (
-    <div className="row mb-6 justify-content-center">
+    <div className="row mb-5 justify-content-center">
       <div className="col-md-10">
         <div className="row">
           <div className="col-12">
