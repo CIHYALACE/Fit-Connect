@@ -2,7 +2,10 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import CertificationsSection from "../components/CertificationsSection";
 import ClientTranformationSection from "../components/ClientTranformationSection";
-import { trainersData, testimonialsData } from "../components/DumbData";
+import TrainingPrograms from "../components/TrainerProfile/TrainingPrograms";
+import PakagesSection from "../components/TrainerProfile/PackagesSection";
+import ContantSection from "../components/TrainerProfile/ContantSection";
+import { trainersData, testimonialsData, programsData } from "../components/DumbData";
 
 export default function TrainerProfile() {
   const { id } = useParams();
@@ -64,6 +67,9 @@ export default function TrainerProfile() {
       </div>
       <CertificationsSection />
       <ClientTranformationSection testimonials={testimonialsData} />
+      <TrainingPrograms programs={programsData} />
+      <PakagesSection />
+      <ContantSection trainer={trainer} />
     </div>
   );
 }
