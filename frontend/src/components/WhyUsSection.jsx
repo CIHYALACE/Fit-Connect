@@ -10,7 +10,7 @@ export default function WhyFitConnect() {
             <div className="text-center mb-5 px-3">
               <h2 className="display-3 fw-bold mb-4">
                 <span className="text-white">Why </span>
-                <span className="text-primary-gradient">FitConnect</span>
+                <span className="text-primary-gradient">FitConnect </span>
                 <span className="text-white">?</span>
               </h2>
               <p className="lead text-light opacity-85 mb-4" style={{ maxWidth: '700px', margin: '0 auto' }}>
