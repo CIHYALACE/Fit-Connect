@@ -21,8 +21,8 @@ export default function TrainingPrograms({ programs }) {
                       style={{ height: "200px" }}
                     >
                       <img
-                        src={`/${program.img}`}
-                        alt={program.name}
+                        src={program.image}
+                        alt={program.title}
                         className="img-fluid h-100 w-100 object-fit-cover"
                       />
                       {program.price === 99 && (
@@ -35,8 +35,8 @@ export default function TrainingPrograms({ programs }) {
                     {/* Program Content */}
                     <div className="card-body p-4 d-flex flex-column">
                       <div className="mb-3">
-                        <h3 className="h4 fw-bold mb-1">{program.name}</h3>
-                        <p className="text-muted mb-0">By {program.auther}</p>
+                        <h3 className="h4 fw-bold mb-1">{program.title}</h3>
+                        <p className="text-muted mb-0">By {program.auther.user.username}</p>
                       </div>
 
                       <div className="mt-auto">

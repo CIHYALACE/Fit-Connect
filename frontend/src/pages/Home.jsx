@@ -3,7 +3,6 @@ import ProductsSection from "../components/ProductsSection";
 import WhyUsSection from "../components/WhyUsSection";
 import CouchesSection from "../components/CouchesSection";
 import TrainersSections from "../components/TrainersSections";
-import { trainersData } from "../components/DumbData";
 import { useEffect , useState } from "react";
 import { getTrainingPrograms } from "../api/api";
 import { getTrainersList } from "../api/api";
@@ -28,9 +27,6 @@ export default function Home() {
       console.error("Error fetching programs:", error);
     }
   }
-  if (programs && programs.length > 0) {
-    console.log(`Programs:`, programs);
-  }
 
 // ! To Fetch Trainers
   const fetchTrainers = async () => {
@@ -42,9 +38,6 @@ export default function Home() {
       console.error("Error fetching programs:", error);
     }
   }
-  if (Trainers && Trainers.length > 0) {
-    console.log(`Trainers:`, Trainers);
-  }
 
   return (
     <>
@@ -52,7 +45,7 @@ export default function Home() {
       <ProductsSection programs={programs}/>
       <WhyUsSection />
       <CouchesSection />
-      <TrainersSections Trainers={Trainers}/>
+      <TrainersSections trainers={Trainers}/>
     </>
   );
 }

@@ -68,7 +68,7 @@ export default function ContantSection({ trainer }) {
                   <h3 className="h3 fw-bold mb-4">Follow My Journey</h3>
                   <p className="mb-5">
                     Join {trainer.first_name}'s community of{" "}
-                    {trainer.speciality.toLowerCase()} enthusiasts for daily
+                    {trainer.speciality} enthusiasts for daily
                     tips, workout routines, and transformation stories.
                   </p>
 
@@ -79,20 +79,20 @@ export default function ContantSection({ trainer }) {
                         {
                           platform: "Instagram",
                           handle:
-                            "@" + trainer.first_name.toLowerCase() + "_fitness",
+                            "@" + trainer.user.first_name + "_fitness",
                           icon: "📸",
                           url: "#",
                         },
                         {
                           platform: "YouTube",
-                          handle: trainer.first_name + " " + trainer.speciality,
+                          handle: trainer.user.first_name + " " + trainer.speciality,
                           icon: "▶️",
                           url: "#",
                         },
                         {
                           platform: "TikTok",
                           handle:
-                            "@" + trainer.first_name.toLowerCase() + "coach",
+                            "@" + trainer.user.first_name + "coach",
                           icon: "🎵",
                           url: "#",
                         },
@@ -100,7 +100,7 @@ export default function ContantSection({ trainer }) {
                           platform: "Email",
                           handle:
                             "coach@" +
-                            trainer.first_name.toLowerCase() +
+                            trainer.user.first_name +
                             ".com",
                           icon: "✉️",
                           url: "#",

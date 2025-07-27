@@ -3,6 +3,7 @@ from .models import TrainingPrograms, TrainerRating, ProgramRating, Gym
 from users.serializers import TrainerSerializer
 
 class TrainingProgramSerializer(serializers.ModelSerializer):
+    auther = TrainerSerializer(read_only=True)
     class Meta:
         model = TrainingPrograms
         fields = '__all__'

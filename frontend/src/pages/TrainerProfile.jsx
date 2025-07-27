@@ -5,16 +5,48 @@ import ClientTranformationSection from "../components/ClientTranformationSection
 import TrainingPrograms from "../components/TrainerProfile/TrainingPrograms";
 import PakagesSection from "../components/TrainerProfile/PackagesSection";
 import ContantSection from "../components/TrainerProfile/ContantSection";
-import { trainersData, testimonialsData, programsData } from "../components/DumbData";
+import { testimonialsData } from "../components/DumbData";
+import { getTrainingPrograms, getTrainersList } from "../api/api";
 
 export default function TrainerProfile() {
   const { id } = useParams();
   const [trainer, setTrainer] = useState(null);
+  const [programs, setProgramss] = useState([]);
+  const [trainers, setTrainers] = useState([])
 
   useEffect(() => {
-    const trainer = trainersData.find((trainer) => trainer.id === parseInt(id));
-    setTrainer(trainer);
-  }, [id]);
+    fetchPrograms();
+    fetchTrainers();
+  },[])
+
+  useEffect(() => {
+    if (trainers.length > 0 && id) {
+      const selectedTrainer = trainers.find(
+        (trainer) => trainer.id === parseInt(id)
+      );
+      setTrainer(selectedTrainer);
+    }
+  }, [id, trainers]);
+
+  // ! To Fetch Programs
+  const fetchPrograms = async () => {
+    try {
+      const response = await getTrainingPrograms();
+      setProgramss(response.data);
+    } catch (error) {
+      console.error("Error fetching programs:", error);
+    }
+  }
+
+// ! To Fetch Trainers
+  const fetchTrainers = async () => {
+    try {
+      const response = await getTrainersList();
+      setTrainers(response.data);
+    } catch (error) {
+      console.error("Error fetching programs:", error);
+    }
+  }
 
   if (!trainer) {
     return <div>Loading...</div>;
@@ -28,11 +60,11 @@ export default function TrainerProfile() {
             <div className="row align-items-center ">
               <div className="col-xl-6 col-lg-7 col-md-12 col-12 order-1 text-center text-lg-start ">
                 <span className="text-dark mb-3 d-block text-uppercase fw-semibold ls-xl">
-                  YOUR {trainer.speciality} COACH
+                  YOUR {trainer.specialties} COACH
                 </span>
                 <h2 className="mb-2 display-4 fw-bold mb-3">
                   <span className="text-dark-gradient">
-                    {trainer.first_name} {trainer.last_name}
+                    {trainer.user.first_name} {trainer.user.last_name}
                   </span>
                   <br />
                 </h2>
@@ -49,14 +81,14 @@ export default function TrainerProfile() {
                     <p className="mb-0">Transformition</p>
                   </div>
                   <div className="col-sm mb-3 mb-lg-0">
-                    <h2 className="h1 fw-bold mb-0 ls-xs">{trainer.experience}+</h2>
+                    <h2 className="h1 fw-bold mb-0 ls-xs">{trainer.experience_years}+</h2>
                     <p className="mb-0">Years Experience</p>
                   </div>
                 </div>
               </div>
               <div className="offset-xl-1 col-xl-5 col-lg-5 col-12 mb-6 mb-lg-0 order-lg-2 text-center mt-3">
                 <img
-                  src={`/${trainer.img}`}
+                  src={trainer.profile_picture}
                   alt=""
                   className="img-fluid rounded-4"
                 />
@@ -67,7 +99,7 @@ export default function TrainerProfile() {
       </div>
       <CertificationsSection />
       <ClientTranformationSection testimonials={testimonialsData} />
-      <TrainingPrograms programs={programsData} />
+      <TrainingPrograms programs={programs} />
       <PakagesSection />
       <ContantSection trainer={trainer} />
     </div>

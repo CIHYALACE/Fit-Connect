@@ -4,7 +4,15 @@ from django.utils.translation import gettext_lazy as _
 from .models import Trainer
 from django.contrib.auth.models import User
 
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['id', 'username', 'email', 'first_name', 'last_name']
+        read_only_fields = ['id']
+
 class TrainerSerializer(serializers.ModelSerializer):
+    user = UserSerializer(read_only=True)
     profile_picture = serializers.ImageField(required=False)
 
     class Meta:
