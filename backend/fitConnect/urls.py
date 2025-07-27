@@ -24,7 +24,7 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('', RedirectView.as_view(url='http://192.168.1.10:5173/')),
+    # path('', RedirectView.as_view(url='http://192.168.1.10:5173/')),
     path('admin/', admin.site.urls),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),    

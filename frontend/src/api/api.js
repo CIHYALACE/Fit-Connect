@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://127.0.0.1:8000/api";
+const API_BASE_URL = "https://recovery-spotlight-primarily-displaying.trycloudflare.com/api";
 const Programs_URL = `${API_BASE_URL}/training_programs/`;
 const Trainers_URL = `${API_BASE_URL}/trainers_list/`;
 const Register_URL = `${API_BASE_URL}/register/`;
