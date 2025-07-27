@@ -25,9 +25,9 @@ export default function NavBar() {
   const isActive = (path) => (activeLink === path ? "active" : "");
 
   return (
-    <nav class="navbar navbar-expand-lg navbar-dark bg-gradient-dark">
-      <div class="container">
-        <a class="navbar-brand me-2 p-0" href="/">
+    <nav className="navbar navbar-expand-lg navbar-dark bg-gradient-dark">
+      <div className="container">
+        <a className="navbar-brand me-2 p-0" href="/">
           <img
             id="MDB-logo"
             src="/Logo3.png"
@@ -49,96 +49,96 @@ export default function NavBar() {
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
 
-          <form class="d-flex align-items-center w-100 form-search">
-            <div class="input-group">
-              <ul class="dropdown-menu dropdown-menu-dark fa-ul">
+          <form className="d-flex align-items-center w-100 form-search">
+            <div className="input-group">
+              <ul className="dropdown-menu dropdown-menu-dark fa-ul">
                 <li>
-                  <a class="dropdown-item" href="#">
-                    <span class="fa-li pe-2">
-                      <i class="fas fa-search"></i>
+                  <a className="dropdown-item" href="#">
+                    <span className="fa-li pe-2">
+                      <i className="fas fa-search"></i>
                     </span>
                     All
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
-                    <span class="fa-li pe-2">
-                      <i class="fas fa-film"></i>
+                  <a className="dropdown-item" href="#">
+                    <span className="fa-li pe-2">
+                      <i className="fas fa-film"></i>
                     </span>
                     Titles
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
-                    <span class="fa-li pe-2">
-                      <i class="fas fa-tv"></i>
+                  <a className="dropdown-item" href="#">
+                    <span className="fa-li pe-2">
+                      <i className="fas fa-tv"></i>
                     </span>
                     TV Episodes
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
-                    <span class="fa-li pe-2">
-                      <i class="fas fa-user-friends"></i>
+                  <a className="dropdown-item" href="#">
+                    <span className="fa-li pe-2">
+                      <i className="fas fa-user-friends"></i>
                     </span>
                     Celebs
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
-                    <span class="fa-li pe-2">
-                      <i class="fas fa-building"></i>
+                  <a className="dropdown-item" href="#">
+                    <span className="fa-li pe-2">
+                      <i className="fas fa-building"></i>
                     </span>
                     Companies
                   </a>
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
-                    <span class="fa-li pe-2">
-                      <i class="fas fa-key"></i>
+                  <a className="dropdown-item" href="#">
+                    <span className="fa-li pe-2">
+                      <i className="fas fa-key"></i>
                     </span>
                     Keywords
                   </a>
                 </li>
                 <li>
-                  <hr class="dropdown-divider" />
+                  <hr className="dropdown-divider" />
                 </li>
                 <li>
-                  <a class="dropdown-item" href="#">
-                    <span class="fa-li pe-2">
-                      <i class="fas fa-search-plus"></i>
+                  <a className="dropdown-item" href="#">
+                    <span className="fa-li pe-2">
+                      <i className="fas fa-search-plus"></i>
                     </span>
-                    Advanced search<i class="fas fa-chevron-right ps-2"></i>
+                    Advanced search<i className="fas fa-chevron-right ps-2"></i>
                   </a>
                 </li>
               </ul>
               <input
                 type="search"
-                class="form-control"
+                className="form-control"
                 placeholder="Search"
                 aria-label="Search"
               />
             </div>
-            <a href="#!" class="text-white">
-              <i class="fas fa-search ps-3"></i>
+            <a href="#!" className="text-white">
+              <i className="fas fa-search ps-3"></i>
             </a>
           </form>
 
-          <ul class="navbar-nav ms-3">
-            <li class="nav-item me-3">
-              <a class="nav-link d-flex align-items-center" href="#!">
+          <ul className="navbar-nav ms-3">
+            <li className="nav-item me-3">
+              <a className="nav-link d-flex align-items-center" href="#!">
                 IMDbPro
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link d-flex align-items-center me-3" href="#!">
-                <i class="fas fa-bookmark pe-2"></i> Watchlist
+            <li className="nav-item">
+              <a className="nav-link d-flex align-items-center me-3" href="#!">
+                <i className="fas fa-bookmark pe-2"></i> Watchlist
               </a>
             </li>
-            <li class="nav-item" style={{width: "65px"}}>
-              <a class="nav-link d-flex align-items-center" href="/login">
+            <li className="nav-item" style={{width: "65px"}}>
+              <a className="nav-link d-flex align-items-center" href="/login">
                 Sign In
               </a>
             </li>

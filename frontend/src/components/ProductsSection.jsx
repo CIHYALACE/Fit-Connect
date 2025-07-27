@@ -6,7 +6,7 @@ export default function ProductsSection({programs}) {
 
 useEffect(() => {
   if (programs && programs.length > 0) {
-    console.log(programs);
+    // console.log(programs);
   }
 }, [programs]);
 
