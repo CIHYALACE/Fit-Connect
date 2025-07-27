@@ -10,9 +10,9 @@ export default function ContantSection({ trainer }) {
           </div>
 
           {/* Two-column layout */}
-          <div className="row g-5">
+          <div className="row g-0 g-lg-5">
             {/* Contact Form */}
-            <div className="col-lg-6">
+            <div className="col-12 col-lg-6">
               <div className="card border-0 shadow-sm rounded-4 h-100">
                 <div className="card-body p-4 p-lg-5">
                   <h3 className="h3 fw-bold mb-4">Send a Message</h3>
@@ -62,7 +62,7 @@ export default function ContantSection({ trainer }) {
             </div>
 
             {/* Social Links */}
-            <div className="col-lg-6">
+            <div className="col-12 col-lg-6">
               <div className="card border-0 shadow-sm rounded-4 h-100">
                 <div className="card-body p-4 p-lg-5 d-flex flex-column">
                   <h3 className="h3 fw-bold mb-4">Follow My Journey</h3>
