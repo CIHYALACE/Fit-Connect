@@ -306,6 +306,32 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
+.btn-outline-dark-gradient {
+  background: transparent;
+  color: var(--dark-gradient);
+  border: 2px solid;
+  border-color: var(--dark-gradient);
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-outline-dark-gradient:hover {
+  background: var(--dark-gradient);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-dark-gradient {
+  background: var(--dark-gradient);
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.btn-dark-gradient:hover {
+  transform: translateY(-2px);
+  color: #fff;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
 .profile-card-2 {
     max-width: 300px;
     background-color: #FFF;

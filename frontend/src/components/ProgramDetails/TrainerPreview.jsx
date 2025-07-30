@@ -1,6 +1,6 @@
 export default function TrainerPreview  ({ auther}){
   return (
-    <div className="row mt-3 mb-6 justify-content-center">
+    <div className="row mb-5 justify-content-center">
       <div className="col-md-10">
         <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
           <div className="card-body p-5">
@@ -18,7 +18,7 @@ export default function TrainerPreview  ({ auther}){
                       objectFit: 'cover'
                     }}
                   />
-                  <div className="position-absolute bottom-0 end-0 bg-warning text-dark px-3 py-1 rounded-pill small fw-bold">
+                  <div className="position-absolute bottom-0 end-0 bg-gradient-dark text-light px-3 py-1 rounded-pill small fw-bold">
                     PRO COACH
                   </div>
                 </div>
@@ -38,7 +38,7 @@ export default function TrainerPreview  ({ auther}){
                 {/* CTA Button */}
                 <a 
                   href={`/trainers/${auther.id}`} 
-                  className="btn btn-outline-dark px-4 py-2 rounded-3 fw-semibold"
+                  className="btn btn-outline-dark-gradient px-4 py-2 rounded-3 fw-semibold"
                 >
                   View Full Trainer Profile →
                 </a>

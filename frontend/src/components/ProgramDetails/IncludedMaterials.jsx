@@ -1,6 +1,6 @@
 export default function IncludedMaterials() {
   return (
-<div className="row mb-6 justify-content-center">
+<div className="row mb-5 justify-content-center">
   <div className="col-md-10">
     <div className="card border-0 shadow-sm rounded-4 overflow-hidden">
       <div className="card-body p-5">

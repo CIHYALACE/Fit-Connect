@@ -1,6 +1,6 @@
 export default function ProgramHero({ program }) {
   return (
-    <div className="row mt-3 mb-6 justify-content-center">
+    <div className="row mt-5 mb-5 justify-content-center">
       <div className="col-md-10">
         <div className="row align-items-center g-5">
           {/* Portrait Image Column */}
@@ -19,8 +19,8 @@ export default function ProgramHero({ program }) {
               />
               {/* Level Badge */}
               <div className="position-absolute top-0 end-0 mt-3 me-3">
-                <span className="badge bg-warning text-dark py-2 px-3 fw-bold rounded-pill">
-                   For {program.difficulty_level}
+                <span className="badge bg-gradient-dark text-light py-2 px-3 fw-bold rounded-pill">
+                  {program.difficulty_level}
                 </span>
               </div>
             </div>
@@ -50,20 +50,46 @@ export default function ProgramHero({ program }) {
                 </p>
               </div>
 
-              {/* Duration Badge */}
-              <div className="d-inline-block bg-light-gradient rounded-pill p-3 mb-5">
-                <div className="d-flex align-items-center">
-                  <div>
-                    <p className="mb-0 small text-muted">PROGRAM DURATION</p>
-                    <p className="mb-0 h4 fw-bold">{program.duration}</p>
+              {/* Stats Row */}
+              <div className="d-flex flex-wrap gap-4 mb-5">
+                {/* Duration Badge */}
+                <div className="bg-light-gradient rounded-pill p-3">
+                  <div className="d-flex align-items-center">
+                    <div>
+                      <p className="mb-0 small text-muted">DURATION</p>
+                      <p className="mb-0 h4 fw-bold">{program.duration}</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Price Badge */}
+                <div className="bg-light-gradient rounded-pill p-3">
+                  <div className="d-flex align-items-center">
+                    <div>
+                      <p className="mb-0 small text-muted">INVESTMENT</p>
+                      <div className="d-flex align-items-end">
+                        <p className="mb-0 h4 fw-bold">${program.price}</p>
+                        {program.original_price && (
+                          <p className="mb-0 ms-2 text-muted text-decoration-line-through">
+                            ${program.original_price}
+                          </p>
+                        )}
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* CTA Button */}
-              <button className="btn btn-dark-gradient btn-lg px-5 py-3 rounded-3 fw-bold">
-                Start Program Today →
-              </button>
+              {/* CTA and Guarantee */}
+              <div className="d-flex flex-column flex-sm-row align-items-start align-items-sm-center gap-3">
+                <button className="btn btn-dark-gradient btn-lg px-5 py-3 rounded-3 fw-bold">
+                Enroll Now - ${program.price}
+                </button>
+                <div className="d-flex align-items-center">
+                  <span className="badge bg-success bg-opacity-10 text-success me-2">✓</span>
+                  <span className="small text-muted">30-day money-back guarantee</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
