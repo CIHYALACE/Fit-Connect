@@ -10,7 +10,7 @@ import { getTrainersList } from "../api/api";
 
 export default function Home() {
 
-  const [programs, setProgramss] = useState([]);
+  const [programs, setPrograms] = useState([]);
   const [Trainers, setTrainers] = useState([])
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export default function Home() {
     try {
       const response = await getTrainingPrograms();
       // console.log("Programs: ",response.data);
-      setProgramss(response.data);
+      setPrograms(response.data);
     } catch (error) {
       console.error("Error fetching programs:", error);
     }

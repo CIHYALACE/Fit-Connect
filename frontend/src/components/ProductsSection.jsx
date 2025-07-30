@@ -1,6 +1,8 @@
+import { useNavigate } from "react-router-dom";
 import TrainingCard from "./TrainingCard";
 
 export default function ProductsSection({programs}) {
+  const navigate = useNavigate();
 
   return (
     <section className="py-5">
@@ -12,6 +14,7 @@ export default function ProductsSection({programs}) {
           {programs.slice(0, 4).map((item, id) => (
             <div key={id} className="col-6 col-sm-6 col-lg-3">
               <TrainingCard 
+                id={item.id}
                 name={item.title} 
                 auther={item.auther.user.username} 
                 price={item.price} 

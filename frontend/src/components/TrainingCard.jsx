@@ -1,4 +1,10 @@
-export default function TrainingCard({name, auther, price, img}) {
+import { useNavigate } from "react-router-dom";
+
+export default function TrainingCard({name, auther, price, img, id}) {
+    const navigate = useNavigate();
+      const handleClick = () => {
+    navigate(`/programs/${id}`);
+  };
     return (
         <div className="h-100 d-flex flex-column">
             <div className="program-card position-relative overflow-hidden rounded-3 mb-3" style={{ paddingBottom: '133.33%' }}>
@@ -13,7 +19,7 @@ export default function TrainingCard({name, auther, price, img}) {
                         left: 0,
                         cursor: 'pointer'
                     }}
-                    onClick={() => window.location.href = '#'}
+                    onClick={handleClick}
                 />
             </div>
             <div className="mt-auto">

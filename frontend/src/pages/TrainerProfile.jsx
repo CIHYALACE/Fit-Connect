@@ -11,7 +11,7 @@ import { getTrainingPrograms, getTrainersList } from "../api/api";
 export default function TrainerProfile() {
   const { id } = useParams();
   const [trainer, setTrainer] = useState(null);
-  const [programs, setProgramss] = useState([]);
+  const [programs, setPrograms] = useState([]);
   const [trainers, setTrainers] = useState([])
 
   useEffect(() => {
@@ -32,7 +32,7 @@ export default function TrainerProfile() {
   const fetchPrograms = async () => {
     try {
       const response = await getTrainingPrograms();
-      setProgramss(response.data);
+      setPrograms(response.data);
     } catch (error) {
       console.error("Error fetching programs:", error);
     }
