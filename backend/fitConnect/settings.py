@@ -174,13 +174,19 @@ USE_I18N = True
 USE_TZ = True
 
 load_dotenv()
-
+# 
 EMAIL_BACKEND = os.getenv('EMAIL_BACKEND')
 EMAIL_HOST = os.getenv('EMAIL_HOST')
 EMAIL_PORT = os.getenv('EMAIL_PORT')
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS')
 EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
+# Odoo Configuration - Loaded from .env file
+ODOO_URL = os.getenv('ODOO_URL')
+ODOO_DB = os.getenv('ODOO_DB')
+ODOO_USERNAME = os.getenv('ODOO_USERNAME')
+ODOO_PASSWORD = os.getenv('ODOO_PASSWORD')
 
 
 # Static files (CSS, JavaScript, Images)

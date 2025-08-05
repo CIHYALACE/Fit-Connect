@@ -4,6 +4,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.authtoken.models import Token
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.permissions import IsAuthenticated
+from django.http import JsonResponse, Http404
 from .models import Trainer
 from .serializers import TrainerSerializer, UserLoginSerializer
 from django.contrib.auth.models import User
@@ -19,6 +20,7 @@ from django.contrib.auth.tokens import default_token_generator
 from django.utils.html import strip_tags
 from django.db import transaction, IntegrityError
 import logging
+from services.odoo_client import create_odoo_trainer
 
 logger = logging.getLogger(__name__)
 
@@ -149,7 +151,7 @@ def user_login(request):
     
     if not serializer.is_valid():
         return Response(
-            {'error': serializer.errors},
+            {'error': 'Invalid credentials. Please check your email and password.'},
             status=status.HTTP_400_BAD_REQUEST
         )
     
@@ -161,7 +163,7 @@ def user_login(request):
         user_type = 'trainer'
     except Trainer.DoesNotExist:
         return Response(
-            {'error': 'No trainer account found with these credentials'},
+            {'error': 'This account does not have trainer privileges'},
             status=status.HTTP_403_FORBIDDEN
         )
     
@@ -177,3 +179,36 @@ def user_login(request):
         'user_type': user_type,
         'trainer_id': trainer.id if user_type == 'trainer' else None
     }, status=status.HTTP_200_OK)
+
+# Endpoint to add a trainer to Odoo
+@api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
+def add_trainer_to_odoo(request, trainer_id):
+    try:
+        trainer = Trainer.objects.get(id=trainer_id)
+    except Trainer.DoesNotExist:
+        raise Http404("Trainer not found")
+
+    # Get profile picture URL if it exists
+    profile_picture_url = None
+    if trainer.profile_picture:
+        profile_picture_url = request.build_absolute_uri(trainer.profile_picture.url)
+
+    # Send to Odoo
+    odoo_id = create_odoo_trainer(
+        name=f"{trainer.user.first_name} {trainer.user.last_name}",
+        email=trainer.user.email,
+        phone=trainer.phone_number,
+        profile_picture=profile_picture_url
+    )
+
+    return JsonResponse({
+        'status': 'success',
+        'odoo_id': odoo_id,
+        'trainer': {
+            'name': f"{trainer.user.first_name} {trainer.user.last_name}",
+            'email': trainer.user.email,
+            'phone': trainer.phone_number,
+            'profile_picture': profile_picture_url  # Use the URL string instead of ImageFieldFile
+        }
+    })

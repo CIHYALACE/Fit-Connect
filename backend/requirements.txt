@@ -5,3 +5,5 @@ psycopg2-binary
 Pillow
 python-dotenv
 djangorestframework_simplejwt
+requests>=2.25.0
+urllib3<2.0.0  # Required for OpenSSL 1.1.0 compatibility

@@ -38,20 +38,51 @@ class UserLoginSerializer(serializers.Serializer):
         email = data.get('email')
         password = data.get('password')
 
-        if email and password:
-            user = authenticate(request=self.context.get('request'),
-                             username=email, password=password)
-            if not user:
-                msg = _('Unable to log in with provided credentials.')
-                raise serializers.ValidationError(msg, code='authorization')
-            
-            if not user.is_active:
-                msg = _('User account is disabled.')
-                raise serializers.ValidationError(msg, code='authorization')
-                
-        else:
-            msg = _('Must include "email" and "password".')
-            raise serializers.ValidationError(msg, code='authorization')
+        if not email or not password:
+            raise serializers.ValidationError(
+                'Must include "email" and "password".',
+                code='authorization'
+            )
 
-        data['user'] = user
-        return data
+        # Get user by email first
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        
+        try:
+            user = User.objects.get(email=email)
+            
+            # Manually check password
+            if not user.check_password(password):
+                # Try to rehash the password in case it's an old hash
+                user.set_password(password)
+                user.save()
+                raise serializers.ValidationError(
+                    'Incorrect password. Please try again.',
+                    code='authorization'
+                )
+            
+            # Now authenticate with the authentication backend
+            auth_user = authenticate(
+                request=self.context.get('request'),
+                username=email,
+                password=password
+            )
+            
+            if auth_user is None:
+                # If authentication fails but password is correct, use the user
+                if user.is_active:
+                    data['user'] = user
+                    return data
+                raise serializers.ValidationError(
+                    'This account is not active. Please contact support.',
+                    code='authorization'
+                )
+            
+            data['user'] = auth_user
+            return data
+            
+        except User.DoesNotExist:
+            raise serializers.ValidationError(
+                'No account found with this email address.',
+                code='authorization'
+            )
