@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-l9=p$3l^^$+y@%g-*t2l7-^qqpmji34+h=qwq5$ijj5-c4k2ma
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '*']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', "https://fit-connect-79v3.onrender.com/", '*']
 
 CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
@@ -113,7 +113,7 @@ DATABASES = {
 'ENGINE': 'django.db.backends.postgresql',
 'NAME': 'fitconnect',
 'USER': 'postgres',
-'PASSWORD': 'Abod@2000',
+'PASSWORD': 'postgres',
 'HOST': 'localhost',
 'PORT': 5432,
 }
