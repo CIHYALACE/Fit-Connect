@@ -69,7 +69,7 @@ python manage.py runserver
 
 ## Project Structure
 
-FitConnect/
+fitconnect/
 │
 ├── backend/
 │   └── core/

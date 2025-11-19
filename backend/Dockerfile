@@ -27,11 +27,11 @@ RUN pip install -r ./requirements.txt
 COPY backend/ ./
 
 # Collect static (optional) - ensure STATIC_ROOT is set in settings or adjust
-ENV DJANGO_SETTINGS_MODULE=fitConnect.settings
+ENV DJANGO_SETTINGS_MODULE=fitconnect.settings
 RUN python manage.py collectstatic --noinput || true
 
 # Expose port
 EXPOSE 8000
 
 # Use gunicorn to run the app
-CMD ["gunicorn", "fitConnect.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]
+CMD ["gunicorn", "fitconnect.wsgi:application", "--bind", "0.0.0.0:8000", "--workers", "3"]

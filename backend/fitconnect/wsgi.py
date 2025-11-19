@@ -1,5 +1,5 @@
 """
-WSGI config for fitConnect project.
+WSGI config for fitconnect project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
