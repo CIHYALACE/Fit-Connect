@@ -94,7 +94,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'fitConnect.wsgi.application'
+WSGI_APPLICATION = 'fitconnect.wsgi.application'
 
 
 # Database
