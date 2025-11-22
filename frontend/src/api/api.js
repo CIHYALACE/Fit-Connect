@@ -1,8 +1,8 @@
 import axios from "axios";
 
 // if the cloude url is not working use the local url
-const API_Cloude_URL = null;
-const API_BASE_URL = API_Cloude_URL ? `${API_Cloude_URL}/api` : `http://127.0.0.1:8000/api`;
+const API_Cloude_URL = "https://fit-connect-79v3.onrender.com/";
+const API_BASE_URL = API_Cloude_URL ? `${API_Cloude_URL}api` : `http://127.0.0.1:8000/api`;
 const Programs_URL = `${API_BASE_URL}/training_programs/`;
 const Trainers_URL = `${API_BASE_URL}/trainers_list/`;
 const Register_URL = `${API_BASE_URL}/register/`;

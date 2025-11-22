@@ -110,24 +110,24 @@ WSGI_APPLICATION = 'fitconnect.wsgi.application'
 #     }
 # }
 
-# DATABASES = {
-# 'default': {
-# 'ENGINE': 'django.db.backends.postgresql',
-# 'NAME': 'fitconnect',
-# 'USER': 'postgres',
-# 'PASSWORD': 'postgres',
-# 'HOST': 'localhost',
-# 'PORT': 5432,
-# }
-# }
-
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get("DATABASE_URL"),
-        conn_max_age=600,
-        ssl_require=True
-    )
+'default': {
+'ENGINE': 'django.db.backends.postgresql',
+'NAME': 'fitconnect_mx2w',
+'USER': 'fitconnect_mx2w_user',
+'PASSWORD': '6RiKgtNC5aXyz2OyP7XUY8HTA3759Crf',
+'HOST': 'dpg-d4es8iidbo4c73dn9f10-a.oregon-postgres.render.com',
+'PORT': 5432,
 }
+}
+
+# DATABASES = {
+#     'default': dj_database_url.config(
+#         default=os.environ.get("DATABASE_URL"),
+#         conn_max_age=600,
+#         ssl_require=True
+#     )
+# }
 
 
 

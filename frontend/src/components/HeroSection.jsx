@@ -18,7 +18,7 @@ export default function HeroSection() {
         <div className="mt-2 d-flex justify-content-center align-items-center overflow-hidden lg-border lg-border-2 lg-border-muted rounded responsive-height">
             <video
               className="w-100"
-              src="a-cinematic-fitness-video.mp4"
+              src="a-cinematic-fitness-video-(1).mp4"
               muted
               autoPlay
               loop/>
