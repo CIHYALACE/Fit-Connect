@@ -111,24 +111,31 @@ WSGI_APPLICATION = 'fitconnect.wsgi.application'
 #     }
 # }
 
-DATABASES = {
-'default': {
-'ENGINE': 'django.db.backends.postgresql',
-'NAME': 'fitconnect_mx2w',
-'USER': 'fitconnect_mx2w_user',
-'PASSWORD': '6RiKgtNC5aXyz2OyP7XUY8HTA3759Crf',
-'HOST': 'dpg-d4es8iidbo4c73dn9f10-a.oregon-postgres.render.com',
-'PORT': 5432,
-}
-}
 
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default=os.environ.get("DATABASE_URL"),
-#         conn_max_age=600,
-#         ssl_require=True
-#     )
-# }
+DB_CHOICE = os.getenv("DB_CHOICE", "container")
+if DB_CHOICE == "render":
+    
+    DATABASES = {
+    'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'fitconnect_mx2w',
+    'USER': 'fitconnect_mx2w_user',
+    'PASSWORD': '6RiKgtNC5aXyz2OyP7XUY8HTA3759Crf',
+    'HOST': 'dpg-d4es8iidbo4c73dn9f10-a.oregon-postgres.render.com',
+    'PORT': 5432,
+    }
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.getenv('DB_NAME', 'fitconnect'),
+            'USER': os.getenv('DB_USER', 'postgres'),
+            'PASSWORD': os.getenv('DB_PASSWORD', 'postgres'),
+            'HOST': os.getenv('DB_HOST', 'db'),
+            'PORT': os.getenv('DB_PORT', '5432'),
+        }
+    }
 
 
 

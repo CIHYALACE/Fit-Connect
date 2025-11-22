@@ -8,10 +8,16 @@ services:
     restart: unless-stopped
     command: python manage.py runserver 0.0.0.0:8000
     environment:
-      - DEBUG=1
-      - SECRET_KEY=replace-me-in-prod
-      - ALLOWED_HOSTS=*
-      - DJANGO_SETTINGS_MODULE=fitconnect.settings
+    - DEBUG=1
+    # - SECRET_KEY=replace-me-in-prod
+    - ALLOWED_HOSTS=*
+    - DJANGO_SETTINGS_MODULE=fitconnect.settings
+    - DB_CHOICE=container    # change to 'render' to use Render DB
+    - DB_NAME=fitconnect    #For Render DB, "fitconnect_mx2w"
+    - DB_USER=postgres      #For Render DB, "fitconnect_mx2w_use"
+    - DB_PASSWORD=postgres  #For Render DB, "6RiKgtNC5aXyz2OyP7XUY8HTA3759Crf"
+    - DB_HOST=db          #For Render DB, "dpg-d4es8iidbo4c73dn9f10-a.oregon-postgres.render.com"
+    - DB_PORT=5432      #For Render DB, "5432"
     volumes:
       - ./backend:/app:cached
       - ./backend/db.sqlite3:/app/db.sqlite3
@@ -30,7 +36,7 @@ services:
     depends_on:
       - backend
 
-  Optional: add a db service (postgres) if you migrate from sqlite to Postgres later
+  # Optional: add a db service (postgres) if you migrate from sqlite to Postgres later
   db:
     image: postgres:15
     environment:
@@ -40,5 +46,5 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  volumes:
+volumes:
   postgres_data:
